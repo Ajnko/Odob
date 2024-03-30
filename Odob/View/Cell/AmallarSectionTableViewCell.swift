@@ -10,7 +10,7 @@ import UIKit
 class AmallarSectionTableViewCell: UITableViewCell {
     
     //MARK: - Properties
-    static let identifier = "AmallarTableViewCell"
+    static let identifier = "AmallarSectionTableViewCell"
     
     let amalTitle: UILabel = {
        let label = UILabel()

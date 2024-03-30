@@ -9,23 +9,47 @@
 /* Begin PBXBuildFile section */
 		1C2E2B742BB34E2C009361CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2E2B732BB34E2C009361CE /* AppDelegate.swift */; };
 		1C2E2B762BB34E2C009361CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2E2B752BB34E2C009361CE /* SceneDelegate.swift */; };
-		1C2E2B782BB34E2C009361CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2E2B772BB34E2C009361CE /* ViewController.swift */; };
+		1C2E2B782BB34E2C009361CE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2E2B772BB34E2C009361CE /* TabBarController.swift */; };
 		1C2E2B7B2BB34E2C009361CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2E2B792BB34E2C009361CE /* Main.storyboard */; };
 		1C2E2B7E2BB34E2C009361CE /* Odob.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C2E2B7C2BB34E2C009361CE /* Odob.xcdatamodeld */; };
 		1C2E2B802BB34E2F009361CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C2E2B7F2BB34E2F009361CE /* Assets.xcassets */; };
 		1C2E2B832BB34E2F009361CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2E2B812BB34E2F009361CE /* LaunchScreen.storyboard */; };
+		CC634D202BB3FAAF002991B7 /* OrganilganAmallarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D1F2BB3FAAF002991B7 /* OrganilganAmallarViewController.swift */; };
+		CC634D222BB3FABB002991B7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D212BB3FABB002991B7 /* HomeViewController.swift */; };
+		CC634D242BB3FAC4002991B7 /* AmallarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D232BB3FAC4002991B7 /* AmallarViewController.swift */; };
+		CC634D272BB40159002991B7 /* AmallarSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D262BB40159002991B7 /* AmallarSectionTableViewCell.swift */; };
+		CC9D8B652BB4647800974C70 /* AmallarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B642BB4647800974C70 /* AmallarListViewController.swift */; };
+		CC9D8B672BB46C9D00974C70 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B662BB46C9D00974C70 /* HomeTableViewCell.swift */; };
+		CC9D8B692BB4728E00974C70 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B682BB4728E00974C70 /* Model.swift */; };
+		CC9D8B6B2BB477BB00974C70 /* AmallarDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B6A2BB477BB00974C70 /* AmallarDefinitionViewController.swift */; };
+		CC9D8B6D2BB479F200974C70 /* AmallarListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B6C2BB479F200974C70 /* AmallarListTableViewCell.swift */; };
+		CC9D8B702BB47CD300974C70 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B6F2BB47CD300974C70 /* ViewModel.swift */; };
+		FBE9F6A200ED115D0F197253 /* Pods_Odob.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD1A70A457B250322C93133 /* Pods_Odob.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CD1A70A457B250322C93133 /* Pods_Odob.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Odob.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C2E2B702BB34E2C009361CE /* Odob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Odob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C2E2B732BB34E2C009361CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C2E2B752BB34E2C009361CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1C2E2B772BB34E2C009361CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1C2E2B772BB34E2C009361CE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1C2E2B7A2BB34E2C009361CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C2E2B7D2BB34E2C009361CE /* Odob.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Odob.xcdatamodel; sourceTree = "<group>"; };
 		1C2E2B7F2BB34E2F009361CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C2E2B822BB34E2F009361CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C2E2B842BB34E2F009361CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CB7F85DBF489B1B60424882 /* Pods-Odob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Odob.release.xcconfig"; path = "Target Support Files/Pods-Odob/Pods-Odob.release.xcconfig"; sourceTree = "<group>"; };
+		B4EDADF4A6A5514889DB34D3 /* Pods-Odob.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Odob.debug.xcconfig"; path = "Target Support Files/Pods-Odob/Pods-Odob.debug.xcconfig"; sourceTree = "<group>"; };
+		CC634D1F2BB3FAAF002991B7 /* OrganilganAmallarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganilganAmallarViewController.swift; sourceTree = "<group>"; };
+		CC634D212BB3FABB002991B7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CC634D232BB3FAC4002991B7 /* AmallarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmallarViewController.swift; sourceTree = "<group>"; };
+		CC634D262BB40159002991B7 /* AmallarSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmallarSectionTableViewCell.swift; sourceTree = "<group>"; };
+		CC9D8B642BB4647800974C70 /* AmallarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmallarListViewController.swift; sourceTree = "<group>"; };
+		CC9D8B662BB46C9D00974C70 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		CC9D8B682BB4728E00974C70 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CC9D8B6A2BB477BB00974C70 /* AmallarDefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmallarDefinitionViewController.swift; sourceTree = "<group>"; };
+		CC9D8B6C2BB479F200974C70 /* AmallarListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmallarListTableViewCell.swift; sourceTree = "<group>"; };
+		CC9D8B6F2BB47CD300974C70 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE9F6A200ED115D0F197253 /* Pods_Odob.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +69,8 @@
 			children = (
 				1C2E2B722BB34E2C009361CE /* Odob */,
 				1C2E2B712BB34E2C009361CE /* Products */,
+				AED54B86AB4355D9474C4E56 /* Pods */,
+				CF9CC539D9C2CBCB6B9D1ECF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +85,107 @@
 		1C2E2B722BB34E2C009361CE /* Odob */ = {
 			isa = PBXGroup;
 			children = (
-				1C2E2B732BB34E2C009361CE /* AppDelegate.swift */,
-				1C2E2B752BB34E2C009361CE /* SceneDelegate.swift */,
-				1C2E2B772BB34E2C009361CE /* ViewController.swift */,
-				1C2E2B792BB34E2C009361CE /* Main.storyboard */,
+				CC9C4EA12BB35BBA0015036B /* App */,
+				CC9C4EA02BB35BB50015036B /* Model */,
+				CC9C4E9F2BB35BB10015036B /* View */,
+				CC9C4E9E2BB35BAB0015036B /* ViewModel */,
 				1C2E2B7F2BB34E2F009361CE /* Assets.xcassets */,
-				1C2E2B812BB34E2F009361CE /* LaunchScreen.storyboard */,
 				1C2E2B842BB34E2F009361CE /* Info.plist */,
 				1C2E2B7C2BB34E2C009361CE /* Odob.xcdatamodeld */,
 			);
 			path = Odob;
+			sourceTree = "<group>";
+		};
+		AED54B86AB4355D9474C4E56 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4EDADF4A6A5514889DB34D3 /* Pods-Odob.debug.xcconfig */,
+				5CB7F85DBF489B1B60424882 /* Pods-Odob.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CC634D1E2BB3FA66002991B7 /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CC634D232BB3FAC4002991B7 /* AmallarViewController.swift */,
+				CC634D212BB3FABB002991B7 /* HomeViewController.swift */,
+				CC634D1F2BB3FAAF002991B7 /* OrganilganAmallarViewController.swift */,
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		CC634D252BB40142002991B7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CC634D262BB40159002991B7 /* AmallarSectionTableViewCell.swift */,
+				CC9D8B662BB46C9D00974C70 /* HomeTableViewCell.swift */,
+				CC9D8B6C2BB479F200974C70 /* AmallarListTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CC9C4E9E2BB35BAB0015036B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC9D8B6F2BB47CD300974C70 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CC9C4E9F2BB35BB10015036B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C2E2B772BB34E2C009361CE /* TabBarController.swift */,
+				CC634D1E2BB3FA66002991B7 /* TabBarControllers */,
+				CC9D8B6E2BB47BB300974C70 /* Controllers */,
+				CC634D252BB40142002991B7 /* Cell */,
+				CC9C4EA22BB35BC50015036B /* Stroryboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC9C4EA02BB35BB50015036B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC9D8B682BB4728E00974C70 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC9C4EA12BB35BBA0015036B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1C2E2B732BB34E2C009361CE /* AppDelegate.swift */,
+				1C2E2B752BB34E2C009361CE /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CC9C4EA22BB35BC50015036B /* Stroryboard */ = {
+			isa = PBXGroup;
+			children = (
+				1C2E2B792BB34E2C009361CE /* Main.storyboard */,
+				1C2E2B812BB34E2F009361CE /* LaunchScreen.storyboard */,
+			);
+			path = Stroryboard;
+			sourceTree = "<group>";
+		};
+		CC9D8B6E2BB47BB300974C70 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CC9D8B642BB4647800974C70 /* AmallarListViewController.swift */,
+				CC9D8B6A2BB477BB00974C70 /* AmallarDefinitionViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CF9CC539D9C2CBCB6B9D1ECF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CD1A70A457B250322C93133 /* Pods_Odob.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C2E2B872BB34E2F009361CE /* Build configuration list for PBXNativeTarget "Odob" */;
 			buildPhases = (
+				D4118CA9D6ED32A108740ADD /* [CP] Check Pods Manifest.lock */,
 				1C2E2B6C2BB34E2C009361CE /* Sources */,
 				1C2E2B6D2BB34E2C009361CE /* Frameworks */,
 				1C2E2B6E2BB34E2C009361CE /* Resources */,
+				C108C390400B642C7C201583 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,15 +256,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C108C390400B642C7C201583 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Odob/Pods-Odob-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Odob/Pods-Odob-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Odob/Pods-Odob-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4118CA9D6ED32A108740ADD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Odob-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1C2E2B6C2BB34E2C009361CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C2E2B782BB34E2C009361CE /* ViewController.swift in Sources */,
+				1C2E2B782BB34E2C009361CE /* TabBarController.swift in Sources */,
 				1C2E2B7E2BB34E2C009361CE /* Odob.xcdatamodeld in Sources */,
+				CC634D272BB40159002991B7 /* AmallarSectionTableViewCell.swift in Sources */,
+				CC634D202BB3FAAF002991B7 /* OrganilganAmallarViewController.swift in Sources */,
 				1C2E2B742BB34E2C009361CE /* AppDelegate.swift in Sources */,
 				1C2E2B762BB34E2C009361CE /* SceneDelegate.swift in Sources */,
+				CC9D8B702BB47CD300974C70 /* ViewModel.swift in Sources */,
+				CC9D8B672BB46C9D00974C70 /* HomeTableViewCell.swift in Sources */,
+				CC9D8B6D2BB479F200974C70 /* AmallarListTableViewCell.swift in Sources */,
+				CC9D8B652BB4647800974C70 /* AmallarListViewController.swift in Sources */,
+				CC9D8B692BB4728E00974C70 /* Model.swift in Sources */,
+				CC634D222BB3FABB002991B7 /* HomeViewController.swift in Sources */,
+				CC9D8B6B2BB477BB00974C70 /* AmallarDefinitionViewController.swift in Sources */,
+				CC634D242BB3FAC4002991B7 /* AmallarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +379,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -222,7 +394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -270,7 +442,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -279,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -291,12 +463,13 @@
 		};
 		1C2E2B882BB34E2F009361CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4EDADF4A6A5514889DB34D3 /* Pods-Odob.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 284U9X4GNQ;
+				DEVELOPMENT_TEAM = DVC3LMSS9Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Odob/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -304,12 +477,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ildam.com.Odob;
+				PRODUCT_BUNDLE_IDENTIFIER = integerAcademy.uz.Odob;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -319,12 +493,13 @@
 		};
 		1C2E2B892BB34E2F009361CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CB7F85DBF489B1B60424882 /* Pods-Odob.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 284U9X4GNQ;
+				DEVELOPMENT_TEAM = DVC3LMSS9Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Odob/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -332,12 +507,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ildam.com.Odob;
+				PRODUCT_BUNDLE_IDENTIFIER = integerAcademy.uz.Odob;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

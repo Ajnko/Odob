@@ -15,9 +15,12 @@ class AmallarListViewController: UIViewController {
         return tableview
     }()
     
+//    var viewModel = ViewModel()
+    var viewModel: ViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Уйқудан уйғонишдаги суннатлари"
+        title = "Уйқудан уйғонишдаги суннатлар"
         view.backgroundColor = .systemBackground
         setupUI()
     }
@@ -29,6 +32,7 @@ class AmallarListViewController: UIViewController {
         amallarTableView.translatesAutoresizingMaskIntoConstraints = false
         amallarTableView.frame = view.bounds
     }
+    
 
 }
 
@@ -40,12 +44,18 @@ extension AmallarListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.sunnahViewModel[section].sunnahs.count
     }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AmallarListTableViewCell.identifier, for: indexPath) as! AmallarListTableViewCell
-        cell.textLabel?.text = "h"
+
+        
+        let sunnahViewModel = viewModel.sunnahViewModel[indexPath.section]
+        
+        cell.amallarTitle.text = sunnahViewModel.sunnahs[indexPath.row].name
+        
         return cell
     }
     

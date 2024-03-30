@@ -8,7 +8,9 @@
 import UIKit
 
 class HomeTableViewCell: UITableViewCell {
-
+    
+    static let identifier = "HomeTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -11,8 +11,9 @@ class AmallarDefinitionViewController: UIViewController {
 
     let titleLabel: UILabel = {
        let label = UILabel()
-        label.text = "Уйқудан уйғонишдаги суннатлари"
-        label.font = .boldSystemFont(ofSize: 25)
+        label.text = "Уйқудан уйғонишдаги суннатлар"
+        label.numberOfLines = 1
+        label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
     
@@ -27,18 +28,21 @@ class AmallarDefinitionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        setupUI()
     }
     
     func setupUI() {
         view.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        titleLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
         
         view.addSubview(sunnatAmalLabel)
         sunnatAmalLabel.translatesAutoresizingMaskIntoConstraints = false
         sunnatAmalLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         sunnatAmalLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        sunnatAmalLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
     }
     
 
