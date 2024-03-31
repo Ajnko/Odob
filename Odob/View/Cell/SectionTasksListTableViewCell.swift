@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class AmallarListTableViewCell: UITableViewCell {
+class SectionTasksListTableViewCell: UITableViewCell {
     
     //MARK: - Proporties
     

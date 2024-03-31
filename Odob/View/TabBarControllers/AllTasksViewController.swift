@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AmallarViewController: UIViewController {
+class AllTasksViewController: UIViewController {
     
     //MARK: - Proporties
     
@@ -24,7 +24,7 @@ class AmallarViewController: UIViewController {
         //view settings
         
         view.backgroundColor = .systemBackground
-        title = "Amallar"
+        self.title = "Amallar"
         navigationController?.navigationBar.prefersLargeTitles = true
         viewModel = ViewModel(sunnahTypes: Information.sunnahs, selectedTypeName: "")
         setupUI()
@@ -44,7 +44,7 @@ class AmallarViewController: UIViewController {
 
 }
 
-extension AmallarViewController: UITableViewDelegate, UITableViewDataSource {
+extension AllTasksViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()

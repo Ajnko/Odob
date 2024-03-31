@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class AmallarDefinitionViewController: UIViewController {
+class TasksDefinitionViewController: UIViewController {
     
     //MARK: - Proporties
     

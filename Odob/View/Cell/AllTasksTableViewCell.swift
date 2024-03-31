@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AmallarSectionTableViewCell: UITableViewCell {
+class AllTasksTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     static let identifier = "AmallarSectionTableViewCell"

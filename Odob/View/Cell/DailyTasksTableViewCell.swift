@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeTableViewCell: UITableViewCell {
+class DailyTasksTableViewCell: UITableViewCell {
     
     static let identifier = "HomeTableViewCell"
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class DailyTasksViewController: UIViewController {
     
     let homeTableView: UITableView = {
        let tableview = UITableView()
@@ -17,7 +17,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Kunlik Amallar"
         view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
         setupUI()
     }
     
@@ -25,24 +27,13 @@ class HomeViewController: UIViewController {
         view.addSubview(homeTableView)
         homeTableView.delegate = self
         homeTableView.dataSource = self
-        
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
-        header.backgroundColor = #colorLiteral(red: 0.07854471356, green: 0.3264657259, blue: 0.2102289796, alpha: 1)
-        homeTableView.tableHeaderView = header
-        
-        let titleLabel = UILabel(frame: CGRect(x: 15, y: 20, width: 500, height: 50))
-        titleLabel.text = "Kunlik Sunnat Amallar"
-        titleLabel.font = .boldSystemFont(ofSize: 25)
-        titleLabel.textColor = .white
-        header.addSubview(titleLabel)
-        
         homeTableView.translatesAutoresizingMaskIntoConstraints = false
         homeTableView.frame = view.bounds
     }
     
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension DailyTasksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height: CGFloat = 80

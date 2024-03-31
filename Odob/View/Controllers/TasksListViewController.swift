@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AmallarListViewController: UIViewController {
+class TasksListViewController: UIViewController {
     
     let amallarTableView: UITableView = {
         let tableview = UITableView()
@@ -46,7 +46,7 @@ class AmallarListViewController: UIViewController {
     
 }
 
-extension AmallarListViewController: UITableViewDelegate, UITableViewDataSource {
+extension TasksListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height: CGFloat = 80

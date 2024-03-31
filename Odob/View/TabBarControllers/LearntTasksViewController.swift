@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OrganilganAmallarViewController: UIViewController {
+class LearntTasksViewController: UIViewController {
     
     let learntAmallarTableView: UITableView = {
        let tableview = UITableView()
@@ -17,7 +17,9 @@ class OrganilganAmallarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "O'rganilgan Amallar"
         view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
         setupUI()
     }
     
@@ -25,17 +27,6 @@ class OrganilganAmallarViewController: UIViewController {
         view.addSubview(learntAmallarTableView)
         learntAmallarTableView.delegate = self
         learntAmallarTableView.dataSource = self
-        
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
-        header.backgroundColor = #colorLiteral(red: 0.07854471356, green: 0.3264657259, blue: 0.2102289796, alpha: 1)
-        learntAmallarTableView.tableHeaderView = header
-        
-        let titleLabel = UILabel(frame: CGRect(x: 15, y: 20, width: 500, height: 50))
-        titleLabel.text = "O'rganilgan Sunnat Amallar"
-        titleLabel.font = .boldSystemFont(ofSize: 25)
-        titleLabel.textColor = .white
-        header.addSubview(titleLabel)
-        
         learntAmallarTableView.translatesAutoresizingMaskIntoConstraints = false
         learntAmallarTableView.frame = view.bounds
     }
@@ -43,7 +34,7 @@ class OrganilganAmallarViewController: UIViewController {
 
 }
 
-extension OrganilganAmallarViewController: UITableViewDelegate, UITableViewDataSource {
+extension LearntTasksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height: CGFloat = 80
