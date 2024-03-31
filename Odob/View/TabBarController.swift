@@ -15,14 +15,15 @@ class TabBarController: UITabBarController {
         self.selectedIndex = 1
         generateTabBar()
         tabBarAppereance()
+        self.tabBarController?.title = "Kunlik Amallar"
     }
     
     //Method generateTabBar
     private func generateTabBar() {
         viewControllers = [
-            generateVC(viewController: AmallarViewController(), title: "Home", image: UIImage(systemName: "house.fill")),
-            generateVC(viewController: HomeViewController(), title: "Personal Info", image: UIImage(systemName: "person.fill")),
-            generateVC(viewController: OrganilganAmallarViewController(), title: "Settings", image: UIImage(systemName: "slider.horizontal.3"))
+            generateVC(viewController: AllTasksViewController(), title: "Home", image: UIImage(systemName: "house.fill")),
+            generateVC(viewController: DailyTasksViewController(), title: "Personal Info", image: UIImage(systemName: "person.fill")),
+            generateVC(viewController: LearntTasksViewController(), title: "Settings", image: UIImage(systemName: "slider.horizontal.3"))
         ]
     }
     

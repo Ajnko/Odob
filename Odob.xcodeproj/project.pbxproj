@@ -14,15 +14,15 @@
 		1C2E2B802BB34E2F009361CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C2E2B7F2BB34E2F009361CE /* Assets.xcassets */; };
 		1C2E2B832BB34E2F009361CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2E2B812BB34E2F009361CE /* LaunchScreen.storyboard */; };
 		A61E09002BB9B65900952018 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61E08FF2BB9B65900952018 /* UIColorExtension.swift */; };
-		CC634D202BB3FAAF002991B7 /* OrganilganAmallarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D1F2BB3FAAF002991B7 /* OrganilganAmallarViewController.swift */; };
-		CC634D222BB3FABB002991B7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D212BB3FABB002991B7 /* HomeViewController.swift */; };
-		CC634D242BB3FAC4002991B7 /* AmallarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D232BB3FAC4002991B7 /* AmallarViewController.swift */; };
-		CC634D272BB40159002991B7 /* AmallarSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D262BB40159002991B7 /* AmallarSectionTableViewCell.swift */; };
-		CC9D8B652BB4647800974C70 /* AmallarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B642BB4647800974C70 /* AmallarListViewController.swift */; };
-		CC9D8B672BB46C9D00974C70 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B662BB46C9D00974C70 /* HomeTableViewCell.swift */; };
+		CC634D202BB3FAAF002991B7 /* LearntTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D1F2BB3FAAF002991B7 /* LearntTasksViewController.swift */; };
+		CC634D222BB3FABB002991B7 /* DailyTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D212BB3FABB002991B7 /* DailyTasksViewController.swift */; };
+		CC634D242BB3FAC4002991B7 /* AllTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D232BB3FAC4002991B7 /* AllTasksViewController.swift */; };
+		CC634D272BB40159002991B7 /* AllTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D262BB40159002991B7 /* AllTasksTableViewCell.swift */; };
+		CC9D8B652BB4647800974C70 /* TasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B642BB4647800974C70 /* TasksListViewController.swift */; };
+		CC9D8B672BB46C9D00974C70 /* DailyTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B662BB46C9D00974C70 /* DailyTasksTableViewCell.swift */; };
 		CC9D8B692BB4728E00974C70 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B682BB4728E00974C70 /* Model.swift */; };
-		CC9D8B6B2BB477BB00974C70 /* AmallarDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B6A2BB477BB00974C70 /* AmallarDefinitionViewController.swift */; };
-		CC9D8B6D2BB479F200974C70 /* AmallarListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B6C2BB479F200974C70 /* AmallarListTableViewCell.swift */; };
+		CC9D8B6B2BB477BB00974C70 /* TasksDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B6A2BB477BB00974C70 /* TasksDefinitionViewController.swift */; };
+		CC9D8B6D2BB479F200974C70 /* SectionTasksListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B6C2BB479F200974C70 /* SectionTasksListTableViewCell.swift */; };
 		CC9D8B702BB47CD300974C70 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B6F2BB47CD300974C70 /* ViewModel.swift */; };
 		FBE9F6A200ED115D0F197253 /* Pods_Odob.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD1A70A457B250322C93133 /* Pods_Odob.framework */; };
 /* End PBXBuildFile section */
@@ -40,15 +40,15 @@
 		5CB7F85DBF489B1B60424882 /* Pods-Odob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Odob.release.xcconfig"; path = "Target Support Files/Pods-Odob/Pods-Odob.release.xcconfig"; sourceTree = "<group>"; };
 		A61E08FF2BB9B65900952018 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		B4EDADF4A6A5514889DB34D3 /* Pods-Odob.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Odob.debug.xcconfig"; path = "Target Support Files/Pods-Odob/Pods-Odob.debug.xcconfig"; sourceTree = "<group>"; };
-		CC634D1F2BB3FAAF002991B7 /* OrganilganAmallarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganilganAmallarViewController.swift; sourceTree = "<group>"; };
-		CC634D212BB3FABB002991B7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		CC634D232BB3FAC4002991B7 /* AmallarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmallarViewController.swift; sourceTree = "<group>"; };
-		CC634D262BB40159002991B7 /* AmallarSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmallarSectionTableViewCell.swift; sourceTree = "<group>"; };
-		CC9D8B642BB4647800974C70 /* AmallarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmallarListViewController.swift; sourceTree = "<group>"; };
-		CC9D8B662BB46C9D00974C70 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		CC634D1F2BB3FAAF002991B7 /* LearntTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntTasksViewController.swift; sourceTree = "<group>"; };
+		CC634D212BB3FABB002991B7 /* DailyTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTasksViewController.swift; sourceTree = "<group>"; };
+		CC634D232BB3FAC4002991B7 /* AllTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTasksViewController.swift; sourceTree = "<group>"; };
+		CC634D262BB40159002991B7 /* AllTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTasksTableViewCell.swift; sourceTree = "<group>"; };
+		CC9D8B642BB4647800974C70 /* TasksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewController.swift; sourceTree = "<group>"; };
+		CC9D8B662BB46C9D00974C70 /* DailyTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTasksTableViewCell.swift; sourceTree = "<group>"; };
 		CC9D8B682BB4728E00974C70 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		CC9D8B6A2BB477BB00974C70 /* AmallarDefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmallarDefinitionViewController.swift; sourceTree = "<group>"; };
-		CC9D8B6C2BB479F200974C70 /* AmallarListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmallarListTableViewCell.swift; sourceTree = "<group>"; };
+		CC9D8B6A2BB477BB00974C70 /* TasksDefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksDefinitionViewController.swift; sourceTree = "<group>"; };
+		CC9D8B6C2BB479F200974C70 /* SectionTasksListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTasksListTableViewCell.swift; sourceTree = "<group>"; };
 		CC9D8B6F2BB47CD300974C70 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,9 +117,9 @@
 		CC634D1E2BB3FA66002991B7 /* TabBarControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CC634D232BB3FAC4002991B7 /* AmallarViewController.swift */,
-				CC634D212BB3FABB002991B7 /* HomeViewController.swift */,
-				CC634D1F2BB3FAAF002991B7 /* OrganilganAmallarViewController.swift */,
+				CC634D232BB3FAC4002991B7 /* AllTasksViewController.swift */,
+				CC634D212BB3FABB002991B7 /* DailyTasksViewController.swift */,
+				CC634D1F2BB3FAAF002991B7 /* LearntTasksViewController.swift */,
 			);
 			path = TabBarControllers;
 			sourceTree = "<group>";
@@ -127,9 +127,9 @@
 		CC634D252BB40142002991B7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				CC634D262BB40159002991B7 /* AmallarSectionTableViewCell.swift */,
-				CC9D8B662BB46C9D00974C70 /* HomeTableViewCell.swift */,
-				CC9D8B6C2BB479F200974C70 /* AmallarListTableViewCell.swift */,
+				CC634D262BB40159002991B7 /* AllTasksTableViewCell.swift */,
+				CC9D8B662BB46C9D00974C70 /* DailyTasksTableViewCell.swift */,
+				CC9D8B6C2BB479F200974C70 /* SectionTasksListTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -182,8 +182,8 @@
 		CC9D8B6E2BB47BB300974C70 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CC9D8B642BB4647800974C70 /* AmallarListViewController.swift */,
-				CC9D8B6A2BB477BB00974C70 /* AmallarDefinitionViewController.swift */,
+				CC9D8B642BB4647800974C70 /* TasksListViewController.swift */,
+				CC9D8B6A2BB477BB00974C70 /* TasksDefinitionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -313,18 +313,18 @@
 				1C2E2B782BB34E2C009361CE /* TabBarController.swift in Sources */,
 				1C2E2B7E2BB34E2C009361CE /* Odob.xcdatamodeld in Sources */,
 				A61E09002BB9B65900952018 /* UIColorExtension.swift in Sources */,
-				CC634D272BB40159002991B7 /* AmallarSectionTableViewCell.swift in Sources */,
-				CC634D202BB3FAAF002991B7 /* OrganilganAmallarViewController.swift in Sources */,
+				CC634D272BB40159002991B7 /* AllTasksTableViewCell.swift in Sources */,
+				CC634D202BB3FAAF002991B7 /* LearntTasksViewController.swift in Sources */,
 				1C2E2B742BB34E2C009361CE /* AppDelegate.swift in Sources */,
 				1C2E2B762BB34E2C009361CE /* SceneDelegate.swift in Sources */,
 				CC9D8B702BB47CD300974C70 /* ViewModel.swift in Sources */,
-				CC9D8B672BB46C9D00974C70 /* HomeTableViewCell.swift in Sources */,
-				CC9D8B6D2BB479F200974C70 /* AmallarListTableViewCell.swift in Sources */,
-				CC9D8B652BB4647800974C70 /* AmallarListViewController.swift in Sources */,
+				CC9D8B672BB46C9D00974C70 /* DailyTasksTableViewCell.swift in Sources */,
+				CC9D8B6D2BB479F200974C70 /* SectionTasksListTableViewCell.swift in Sources */,
+				CC9D8B652BB4647800974C70 /* TasksListViewController.swift in Sources */,
 				CC9D8B692BB4728E00974C70 /* Model.swift in Sources */,
-				CC634D222BB3FABB002991B7 /* HomeViewController.swift in Sources */,
-				CC9D8B6B2BB477BB00974C70 /* AmallarDefinitionViewController.swift in Sources */,
-				CC634D242BB3FAC4002991B7 /* AmallarViewController.swift in Sources */,
+				CC634D222BB3FABB002991B7 /* DailyTasksViewController.swift in Sources */,
+				CC9D8B6B2BB477BB00974C70 /* TasksDefinitionViewController.swift in Sources */,
+				CC634D242BB3FAC4002991B7 /* AllTasksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

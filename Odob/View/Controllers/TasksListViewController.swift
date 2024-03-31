@@ -11,7 +11,7 @@ class TasksListViewController: UIViewController {
     
     let amallarTableView: UITableView = {
         let tableview = UITableView()
-        tableview.register(AmallarListTableViewCell.self, forCellReuseIdentifier: AmallarListTableViewCell.identifier)
+        tableview.register(SectionTasksListTableViewCell.self, forCellReuseIdentifier: SectionTasksListTableViewCell.identifier)
         return tableview
     }()
     
@@ -59,7 +59,7 @@ extension TasksListViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AmallarListTableViewCell.identifier, for: indexPath) as! AmallarListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SectionTasksListTableViewCell.identifier, for: indexPath) as! SectionTasksListTableViewCell
         if let sunnah = viewModel.sunnahForIndexPath(indexPath) {
             cell.amalID.text = "\(sunnah.id)."
             cell.amallarTitle.text = sunnah.name
@@ -72,7 +72,7 @@ extension TasksListViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         if let (name ,definition, hadis, hadisBy) = viewModel.definitionAndHadisForID(selectedID) {
-            let vc = AmallarDefinitionViewController(name: name , definition: definition, hadis: hadis, haidsBy: hadisBy)
+            let vc = TasksDefinitionViewController(name: name , definition: definition, hadis: hadis, haidsBy: hadisBy)
             navigationController?.pushViewController(vc, animated: true)
         } else {
             print("Definition and hadis not found for ID: \(selectedID)")

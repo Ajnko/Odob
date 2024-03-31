@@ -11,7 +11,7 @@ class DailyTasksViewController: UIViewController {
     
     let homeTableView: UITableView = {
        let tableview = UITableView()
-        tableview.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.identifier)
+        tableview.register(DailyTasksTableViewCell.self, forCellReuseIdentifier: DailyTasksTableViewCell.identifier)
         return tableview
     }()
     
@@ -45,7 +45,7 @@ extension DailyTasksViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: DailyTasksTableViewCell.identifier, for: indexPath) as! DailyTasksTableViewCell
         cell.textLabel?.text = "hi"
         cell.backgroundColor = .red
         return cell

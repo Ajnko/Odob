@@ -13,7 +13,7 @@ class AllTasksViewController: UIViewController {
     
     let amallarTableView: UITableView = {
        let tableview = UITableView()
-        tableview.register(AmallarSectionTableViewCell.self, forCellReuseIdentifier: AmallarSectionTableViewCell.identifier)
+        tableview.register(AllTasksTableViewCell.self, forCellReuseIdentifier: AllTasksTableViewCell.identifier)
         return tableview
     }()
     
@@ -51,7 +51,7 @@ extension AllTasksViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AmallarSectionTableViewCell.identifier, for: indexPath) as! AmallarSectionTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AllTasksTableViewCell.identifier, for: indexPath) as! AllTasksTableViewCell
         cell.amalTitle.text = viewModel.titleForRow(atIndex: indexPath.row)
         return cell
     }
@@ -60,7 +60,7 @@ extension AllTasksViewController: UITableViewDelegate, UITableViewDataSource {
         guard let selectedTypeName = viewModel.titleForRow(atIndex: indexPath.row) else {
             return
         }
-        let vc = AmallarListViewController(selectedTypeName: selectedTypeName)
+        let vc = TasksListViewController(selectedTypeName: selectedTypeName)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
