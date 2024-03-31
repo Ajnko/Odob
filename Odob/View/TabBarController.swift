@@ -18,6 +18,7 @@ class TabBarController: UITabBarController {
     
     func setupTabBar() {
         let amallar = AmallarViewController()
+        amallar.title = "Amallar"
         amallar.tabBarItem = UITabBarItem(title: "Amallar", image: UIImage(systemName: "list.bullet.circle"), selectedImage: UIImage(systemName: "list.bullet.circle.fill"))
         
         let home = HomeViewController()
@@ -25,7 +26,7 @@ class TabBarController: UITabBarController {
         
         let learntAmallar = OrganilganAmallarViewController()
         learntAmallar.tabBarItem = UITabBarItem(title: "Oranilgan", image: UIImage(systemName: "checkmark.rectangle.stack"), selectedImage: UIImage(systemName: "checkmark.rectangle.stack.fill"))
-        
+
         tabBar.tintColor = #colorLiteral(red: 0.07854471356, green: 0.3264657259, blue: 0.2102289796, alpha: 1)
         tabBar.backgroundColor = .white
         tabBar.isTranslucent = false
