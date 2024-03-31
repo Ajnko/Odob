@@ -8,31 +8,60 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        setupTabBar()
         self.selectedIndex = 1
+        generateTabBar()
+        tabBarAppereance()
     }
     
-    func setupTabBar() {
-        let amallar = AmallarViewController()
-        amallar.title = "Amallar"
-        amallar.tabBarItem = UITabBarItem(title: "Amallar", image: UIImage(systemName: "list.bullet.circle"), selectedImage: UIImage(systemName: "list.bullet.circle.fill"))
-        
-        let home = HomeViewController()
-        home.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.circle"), selectedImage: UIImage(systemName: "house.circle.fill"))
-        
-        let learntAmallar = OrganilganAmallarViewController()
-        learntAmallar.tabBarItem = UITabBarItem(title: "Oranilgan", image: UIImage(systemName: "checkmark.rectangle.stack"), selectedImage: UIImage(systemName: "checkmark.rectangle.stack.fill"))
-
-        tabBar.tintColor = #colorLiteral(red: 0.07854471356, green: 0.3264657259, blue: 0.2102289796, alpha: 1)
-        tabBar.backgroundColor = .white
-        tabBar.isTranslucent = false
-        viewControllers = [amallar, home, learntAmallar]
+    //Method generateTabBar
+    private func generateTabBar() {
+        viewControllers = [
+            generateVC(viewController: AmallarViewController(), title: "Home", image: UIImage(systemName: "house.fill")),
+            generateVC(viewController: HomeViewController(), title: "Personal Info", image: UIImage(systemName: "person.fill")),
+            generateVC(viewController: OrganilganAmallarViewController(), title: "Settings", image: UIImage(systemName: "slider.horizontal.3"))
+        ]
     }
-
-
+    
+    private func generateVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController {
+        viewController.tabBarItem.title = title
+        viewController.tabBarItem.image = image
+        return viewController
+    }
+    
+    private func tabBarAppereance() {
+        let positionOnX: CGFloat = 10
+        let positionOnY: CGFloat = 14
+        let width = tabBar.bounds.width - positionOnX * 2
+        let height = tabBar.bounds.height + positionOnY * 2
+        
+        let roundLayer = CAShapeLayer()
+        
+        let bezierPath = UIBezierPath(roundedRect: CGRect(
+            x: positionOnX,
+            y: tabBar.bounds.minY - positionOnY,
+            width: width,
+            height: height
+        ), cornerRadius: height / 2)
+        
+        roundLayer.path = bezierPath.cgPath
+        tabBar.layer.insertSublayer(roundLayer, at: 0)
+        
+        tabBar.itemWidth = width / 5
+        tabBar.itemPositioning = .centered
+        
+        tabBar.backgroundColor = .clear
+        roundLayer.fillColor = UIColor.mainWhite.cgColor
+        
+        tabBar.tintColor = .tabBarItemAccent
+        tabBar.unselectedItemTintColor = .tabBarItemLight
+        
+        let fontAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.font: UIFont(name: "TimesNewRomanPSMT", size: 12) ?? UIFont.systemFont(ofSize: 12)
+        ]
+        UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
+    }
 }
-

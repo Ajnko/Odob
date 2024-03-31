@@ -13,6 +13,7 @@
 		1C2E2B7E2BB34E2C009361CE /* Odob.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C2E2B7C2BB34E2C009361CE /* Odob.xcdatamodeld */; };
 		1C2E2B802BB34E2F009361CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C2E2B7F2BB34E2F009361CE /* Assets.xcassets */; };
 		1C2E2B832BB34E2F009361CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2E2B812BB34E2F009361CE /* LaunchScreen.storyboard */; };
+		A61E09002BB9B65900952018 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61E08FF2BB9B65900952018 /* UIColorExtension.swift */; };
 		CC634D202BB3FAAF002991B7 /* OrganilganAmallarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D1F2BB3FAAF002991B7 /* OrganilganAmallarViewController.swift */; };
 		CC634D222BB3FABB002991B7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D212BB3FABB002991B7 /* HomeViewController.swift */; };
 		CC634D242BB3FAC4002991B7 /* AmallarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D232BB3FAC4002991B7 /* AmallarViewController.swift */; };
@@ -37,6 +38,7 @@
 		1C2E2B822BB34E2F009361CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C2E2B842BB34E2F009361CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CB7F85DBF489B1B60424882 /* Pods-Odob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Odob.release.xcconfig"; path = "Target Support Files/Pods-Odob/Pods-Odob.release.xcconfig"; sourceTree = "<group>"; };
+		A61E08FF2BB9B65900952018 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		B4EDADF4A6A5514889DB34D3 /* Pods-Odob.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Odob.debug.xcconfig"; path = "Target Support Files/Pods-Odob/Pods-Odob.debug.xcconfig"; sourceTree = "<group>"; };
 		CC634D1F2BB3FAAF002991B7 /* OrganilganAmallarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganilganAmallarViewController.swift; sourceTree = "<group>"; };
 		CC634D212BB3FABB002991B7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		1C2E2B722BB34E2C009361CE /* Odob */ = {
 			isa = PBXGroup;
 			children = (
+				A61E08FE2BB9B64B00952018 /* Extension */,
 				CC9C4EA02BB35BB50015036B /* Model */,
 				CC9C4E9E2BB35BAB0015036B /* ViewModel */,
 				CC9C4E9F2BB35BB10015036B /* View */,
@@ -92,6 +95,14 @@
 				1C2E2B7C2BB34E2C009361CE /* Odob.xcdatamodeld */,
 			);
 			path = Odob;
+			sourceTree = "<group>";
+		};
+		A61E08FE2BB9B64B00952018 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A61E08FF2BB9B65900952018 /* UIColorExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		AED54B86AB4355D9474C4E56 /* Pods */ = {
@@ -301,6 +312,7 @@
 			files = (
 				1C2E2B782BB34E2C009361CE /* TabBarController.swift in Sources */,
 				1C2E2B7E2BB34E2C009361CE /* Odob.xcdatamodeld in Sources */,
+				A61E09002BB9B65900952018 /* UIColorExtension.swift in Sources */,
 				CC634D272BB40159002991B7 /* AmallarSectionTableViewCell.swift in Sources */,
 				CC634D202BB3FAAF002991B7 /* OrganilganAmallarViewController.swift in Sources */,
 				1C2E2B742BB34E2C009361CE /* AppDelegate.swift in Sources */,
