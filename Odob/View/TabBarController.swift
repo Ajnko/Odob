@@ -11,11 +11,8 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        self.selectedIndex = 1
         generateTabBar()
         tabBarAppereance()
-        self.tabBarController?.title = "Kunlik Amallar"
     }
     
     //Method generateTabBar
@@ -40,7 +37,7 @@ class TabBarController: UITabBarController {
         let height = tabBar.bounds.height + positionOnY * 2
         
         let roundLayer = CAShapeLayer()
-        
+
         let bezierPath = UIBezierPath(roundedRect: CGRect(
             x: positionOnX,
             y: tabBar.bounds.minY - positionOnY,
@@ -54,9 +51,9 @@ class TabBarController: UITabBarController {
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
         
-        tabBar.backgroundColor = .clear
         roundLayer.fillColor = UIColor.mainWhite.cgColor
         
+        tabBar.backgroundColor = .clear
         tabBar.tintColor = .tabBarItemAccent
         tabBar.unselectedItemTintColor = .tabBarItemLight
         
@@ -66,3 +63,4 @@ class TabBarController: UITabBarController {
         UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
     }
 }
+
