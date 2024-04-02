@@ -35,7 +35,7 @@ class AllTasksViewController: UIViewController {
         view.addSubview(amallarTableView)
         amallarTableView.delegate = self
         amallarTableView.dataSource = self
-                
+        amallarTableView.rowHeight = 70
         amallarTableView.translatesAutoresizingMaskIntoConstraints = false
         amallarTableView.frame = view.bounds
     }
