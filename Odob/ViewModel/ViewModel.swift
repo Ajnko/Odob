@@ -35,13 +35,13 @@ struct ViewModel {
     }
     
     //Method sunnahForIndexPath
-    func sunnahForIndexPath(_ indexPath: IndexPath) -> (id: Int, name: String)? {
+    func sunnahForIndexPath(_ indexPath: IndexPath) -> (id: Int, name: String, hadis: String)? {
         if let selectedSunnahType = sunnahTypes.first(where: { $0.typeName == selectedTypeName }) {
             guard indexPath.row >= 0 && indexPath.row < selectedSunnahType.sunnahs.count else {
                 return nil
             }
             let sunnah = selectedSunnahType.sunnahs[indexPath.row]
-            return (sunnah.id, sunnah.name)
+            return (sunnah.id, sunnah.name, sunnah.hadis)
         }
         return nil
     }

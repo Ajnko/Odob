@@ -12,8 +12,13 @@ class AllTasksTableViewCell: UITableViewCell {
     //MARK: - Properties
     static let identifier = "AmallarSectionTableViewCell"
     
+    let checkmarkButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
+    
     let amalTitle: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Уйқудан уйғонишдаги суннатлар"
         label.font = .boldSystemFont(ofSize: 18)
         return label
@@ -21,18 +26,29 @@ class AllTasksTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        //checkmarkButton
+        self.addSubview(checkmarkButton)
+        checkmarkButton.snp.makeConstraints { make in
+            make.centerY.equalTo(self.snp.centerY)
+            make.left.equalTo(self.snp.left).offset(20)
+            make.width.equalTo(24)
+            make.height.equalTo(24)
+        }
+        
+        //amalTitle
         self.addSubview(amalTitle)
-        amalTitle.translatesAutoresizingMaskIntoConstraints = false
-        amalTitle.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        amalTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15).isActive = true
-   
+        amalTitle.snp.makeConstraints { make in
+            make.centerY.equalTo(self.snp.centerY)
+            make.left.equalTo(checkmarkButton.snp.right).inset(-10)
+        }
+        
     }
-
+    
     func updateUI(with data: SunnahType)  {
         amalTitle.text = data.typeName
     }

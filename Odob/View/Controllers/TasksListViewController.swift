@@ -68,6 +68,7 @@ extension TasksListViewController: UITableViewDelegate, UITableViewDataSource {
         if let sunnah = viewModel.sunnahForIndexPath(indexPath) {
             cell.amalID.text = "\(sunnah.id)."
             cell.amallarTitle.text = sunnah.name
+            cell.amalDefinition.text = sunnah.hadis
         }
         return cell
     }

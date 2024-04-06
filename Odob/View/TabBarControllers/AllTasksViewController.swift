@@ -13,7 +13,7 @@ class AllTasksViewController: UIViewController {
     //MARK: - Proporties
     
     let amallarTableView: UITableView = {
-       let tableview = UITableView()
+        let tableview = UITableView()
         tableview.register(AllTasksTableViewCell.self, forCellReuseIdentifier: AllTasksTableViewCell.identifier)
         return tableview
     }()
@@ -26,6 +26,7 @@ class AllTasksViewController: UIViewController {
     }()
     
     var viewModel: ViewModel!
+    var imageIndices = [Int](repeating: 0, count: 4)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,12 +51,27 @@ class AllTasksViewController: UIViewController {
         }
     }
     
-
-
+    //MARK: - Actions -
+    //Method checkMarkImageChange
+    @objc func checkMarkImageChange(_ sender: UIButton) {
+        
+        let indexPath = IndexPath(item: sender.tag, section: 0)
+        
+        if imageIndices[indexPath.item] == 0 {
+            imageIndices[indexPath.item] = 1
+        } else {
+            imageIndices[indexPath.item] = 0
+        }
+        
+        amallarTableView.reloadData()
+        
+    }
+    
+    
 }
 
 extension AllTasksViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
     }
@@ -63,7 +79,20 @@ extension AllTasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AllTasksTableViewCell.identifier, for: indexPath) as! AllTasksTableViewCell
         cell.amalTitle.text = viewModel.titleForRow(atIndex: indexPath.row)
-        cell.backgroundColor = .orange
+        
+        //change image
+        cell.checkmarkButton.tag = indexPath.item
+        cell.checkmarkButton.addTarget(self, action: #selector(checkMarkImageChange), for: .touchUpInside)
+        
+        while imageIndices.count <= indexPath.item {
+            imageIndices.append(0)
+        }
+        
+        let currentImageIndex = imageIndices[indexPath.item]
+        let imageName = currentImageIndex == 0 ? "unchecked" : "checked"
+        
+        cell.checkmarkButton.setImage(UIImage(named: imageName), for: .normal)
+        
         return cell
     }
     

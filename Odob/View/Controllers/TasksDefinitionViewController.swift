@@ -85,7 +85,7 @@ class TasksDefinitionViewController: UIViewController {
         }
         
         //definitionOfAmal
-        definitionOfAmal.text = "Тавсиф: \(definition)"
+        definitionOfAmal.text = definition
         definitionOfAmal.snp.makeConstraints { make in
             make.top.equalTo(nameOfAmal.snp.bottom).offset(10)
             make.left.equalTo(view.snp.left).offset(30)
