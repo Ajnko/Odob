@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+@available(iOS 15.0, *)
 class DailyTasksViewController: UIViewController {
     
     let homeTableView: UITableView = {
@@ -20,6 +21,7 @@ class DailyTasksViewController: UIViewController {
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
         controller.searchBar.placeholder = "Sunnat amal qidirish"
         controller.searchBar.searchBarStyle = .minimal
+        controller.searchBar.searchTextField.backgroundColor = .white
         return controller
     }()
     
@@ -35,6 +37,7 @@ class DailyTasksViewController: UIViewController {
         view.addSubview(homeTableView)
         homeTableView.delegate = self
         homeTableView.dataSource = self
+        homeTableView.backgroundColor = .systemMint
         homeTableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
@@ -45,6 +48,7 @@ class DailyTasksViewController: UIViewController {
     
 }
 
+@available(iOS 15.0, *)
 extension DailyTasksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -59,7 +63,6 @@ extension DailyTasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DailyTasksTableViewCell.identifier, for: indexPath) as! DailyTasksTableViewCell
         cell.textLabel?.text = "hi"
-        cell.backgroundColor = .red
         return cell
     }
 }

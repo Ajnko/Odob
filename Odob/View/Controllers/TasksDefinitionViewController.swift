@@ -16,6 +16,7 @@ class TasksDefinitionViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 3
         label.font = UIFont(name: "Helvetica-Bold", size: 22)
+        label.textAlignment = .center
         return label
     }()
     

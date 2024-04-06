@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+@available(iOS 15.0, *)
 class LearntTasksViewController: UIViewController {
     
     let learntAmallarTableView: UITableView = {
@@ -20,6 +21,7 @@ class LearntTasksViewController: UIViewController {
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
         controller.searchBar.placeholder = "Sunnat amal qidirish"
         controller.searchBar.searchBarStyle = .minimal
+        controller.searchBar.searchTextField.backgroundColor = .white
         return controller
     }()
     
@@ -35,6 +37,7 @@ class LearntTasksViewController: UIViewController {
         view.addSubview(learntAmallarTableView)
         learntAmallarTableView.delegate = self
         learntAmallarTableView.dataSource = self
+        learntAmallarTableView.backgroundColor = .systemMint
         learntAmallarTableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
@@ -46,6 +49,7 @@ class LearntTasksViewController: UIViewController {
 
 }
 
+@available(iOS 15.0, *)
 extension LearntTasksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

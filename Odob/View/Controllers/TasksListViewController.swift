@@ -32,6 +32,7 @@ class TasksListViewController: UIViewController {
         super.viewDidLoad()
         title = selectedTypeName
         view.backgroundColor = .systemBackground
+        self.navigationItem.largeTitleDisplayMode = .never
         setupUI()
         viewModel = ViewModel(sunnahTypes: Information.sunnahs, selectedTypeName: selectedTypeName)
     }

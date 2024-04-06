@@ -7,6 +7,7 @@
 
 import UIKit
 
+@available(iOS 15.0, *)
 class TabBarController: UITabBarController {
     
     override func viewDidLoad() {

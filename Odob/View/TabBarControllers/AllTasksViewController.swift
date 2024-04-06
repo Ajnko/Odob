@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+@available(iOS 15.0, *)
 class AllTasksViewController: UIViewController {
     
     //MARK: - Proporties
@@ -22,6 +23,7 @@ class AllTasksViewController: UIViewController {
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
         controller.searchBar.placeholder = "Sunnat amal qidirish"
         controller.searchBar.searchBarStyle = .minimal
+        controller.searchBar.searchTextField.backgroundColor = .white
         return controller
     }()
     
@@ -42,7 +44,7 @@ class AllTasksViewController: UIViewController {
         view.addSubview(amallarTableView)
         amallarTableView.delegate = self
         amallarTableView.dataSource = self
-        amallarTableView.rowHeight = 70
+        amallarTableView.backgroundColor = .systemMint
         amallarTableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
@@ -70,7 +72,13 @@ class AllTasksViewController: UIViewController {
     
 }
 
+@available(iOS 15.0, *)
 extension AllTasksViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height: CGFloat = 80
+        return height
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
