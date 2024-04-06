@@ -18,9 +18,9 @@ class TabBarController: UITabBarController {
     //Method generateTabBar
     private func generateTabBar() {
         viewControllers = [
-            generateVC(viewController: AllTasksViewController(), title: "Home", image: UIImage(systemName: "house.fill")),
-            generateVC(viewController: DailyTasksViewController(), title: "Personal Info", image: UIImage(systemName: "person.fill")),
-            generateVC(viewController: LearntTasksViewController(), title: "Settings", image: UIImage(systemName: "slider.horizontal.3"))
+            generateVC(viewController: AllTasksViewController(), title: "Amallar", image: UIImage(systemName: "house.fill")),
+            generateVC(viewController: DailyTasksViewController(), title: "Kunlik Amallar", image: UIImage(systemName: "person.fill")),
+            generateVC(viewController: LearntTasksViewController(), title: "O'rganilgan Amallar", image: UIImage(systemName: "slider.horizontal.3"))
         ]
     }
     

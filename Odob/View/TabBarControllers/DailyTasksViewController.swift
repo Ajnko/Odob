@@ -19,7 +19,6 @@ class DailyTasksViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Kunlik Amallar"
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
         setupUI()
     }
     

@@ -19,7 +19,6 @@ class LearntTasksViewController: UIViewController {
         super.viewDidLoad()
         self.title = "O'rganilgan Amallar"
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
         setupUI()
     }
     
