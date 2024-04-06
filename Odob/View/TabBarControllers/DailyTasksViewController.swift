@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class DailyTasksViewController: UIViewController {
     
@@ -15,19 +16,31 @@ class DailyTasksViewController: UIViewController {
         return tableview
     }()
     
+    let searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: SearchResultsViewController())
+        controller.searchBar.placeholder = "Sunnat amal qidirish"
+        controller.searchBar.searchBarStyle = .minimal
+        return controller
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Kunlik Amallar"
         view.backgroundColor = .systemBackground
         setupUI()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.searchController = searchController
     }
     
     func setupUI() {
         view.addSubview(homeTableView)
         homeTableView.delegate = self
         homeTableView.dataSource = self
-        homeTableView.translatesAutoresizingMaskIntoConstraints = false
-        homeTableView.frame = view.bounds
+        homeTableView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+        }
     }
     
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class TasksListViewController: UIViewController {
     
@@ -39,8 +40,12 @@ class TasksListViewController: UIViewController {
         view.addSubview(amallarTableView)
         amallarTableView.delegate = self
         amallarTableView.dataSource = self
-        amallarTableView.translatesAutoresizingMaskIntoConstraints = false
-        amallarTableView.frame = view.bounds
+        amallarTableView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+        }
     }
     
     

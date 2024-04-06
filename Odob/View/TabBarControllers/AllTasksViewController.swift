@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class AllTasksViewController: UIViewController {
     
@@ -17,18 +18,23 @@ class AllTasksViewController: UIViewController {
         return tableview
     }()
     
+    let searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: SearchResultsViewController())
+        controller.searchBar.placeholder = "Sunnat amal qidirish"
+        controller.searchBar.searchBarStyle = .minimal
+        return controller
+    }()
+    
     var viewModel: ViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //view settings
-        
         view.backgroundColor = .systemBackground
-        self.title = "Amallar"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.searchController = searchController
         viewModel = ViewModel(sunnahTypes: Information.sunnahs, selectedTypeName: "")
         setupUI()
-
     }
     
     func setupUI() {
@@ -36,8 +42,12 @@ class AllTasksViewController: UIViewController {
         amallarTableView.delegate = self
         amallarTableView.dataSource = self
         amallarTableView.rowHeight = 70
-        amallarTableView.translatesAutoresizingMaskIntoConstraints = false
-        amallarTableView.frame = view.bounds
+        amallarTableView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+        }
     }
     
 
@@ -53,6 +63,7 @@ extension AllTasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AllTasksTableViewCell.identifier, for: indexPath) as! AllTasksTableViewCell
         cell.amalTitle.text = viewModel.titleForRow(atIndex: indexPath.row)
+        cell.backgroundColor = .orange
         return cell
     }
     

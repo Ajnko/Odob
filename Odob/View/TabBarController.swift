@@ -13,21 +13,22 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         generateTabBar()
         tabBarAppereance()
+        self.selectedIndex = 1
     }
     
     //Method generateTabBar
     private func generateTabBar() {
         viewControllers = [
-            generateVC(viewController: AllTasksViewController(), title: "Amallar", image: UIImage(systemName: "house.fill")),
-            generateVC(viewController: DailyTasksViewController(), title: "Kunlik Amallar", image: UIImage(systemName: "person.fill")),
-            generateVC(viewController: LearntTasksViewController(), title: "O'rganilgan Amallar", image: UIImage(systemName: "slider.horizontal.3"))
+            generateVC(viewController: AllTasksViewController(), title: "Amallar", image: UIImage(systemName: "house.fill"), tag: 0),
+            generateVC(viewController: DailyTasksViewController(), title: "Kunlik Amallar", image: UIImage(systemName: "person.fill"), tag: 1),
+            generateVC(viewController: LearntTasksViewController(), title: "O'rganilgan Amallar", image: UIImage(systemName: "slider.horizontal.3"), tag: 2)
         ]
     }
     
-    private func generateVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController {
-        viewController.tabBarItem.title = title
-        viewController.tabBarItem.image = image
-        return viewController
+    private func generateVC(viewController: UIViewController, title: String, image: UIImage?, tag: Int) -> UIViewController {
+        viewController.tabBarItem = UITabBarItem(title: title, image: image, tag: tag)
+        viewController.title = title
+        return UINavigationController(rootViewController: viewController)
     }
     
     private func tabBarAppereance() {
@@ -51,11 +52,12 @@ class TabBarController: UITabBarController {
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
         
-        roundLayer.fillColor = UIColor.mainWhite.cgColor
+        roundLayer.fillColor = UIColor.tabBarItemAccent.cgColor
         
-        tabBar.backgroundColor = .clear
-        tabBar.tintColor = .tabBarItemAccent
+        tabBar.backgroundColor = .systemBackground
+        tabBar.tintColor = .mainWhite
         tabBar.unselectedItemTintColor = .tabBarItemLight
+        tabBar.isTranslucent = false
         
         let fontAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.font: UIFont(name: "TimesNewRomanPSMT", size: 12) ?? UIFont.systemFont(ofSize: 12)

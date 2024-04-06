@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class LearntTasksViewController: UIViewController {
     
@@ -15,19 +16,31 @@ class LearntTasksViewController: UIViewController {
         return tableview
     }()
     
+    let searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: SearchResultsViewController())
+        controller.searchBar.placeholder = "Sunnat amal qidirish"
+        controller.searchBar.searchBarStyle = .minimal
+        return controller
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "O'rganilgan Amallar"
         view.backgroundColor = .systemBackground
         setupUI()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.searchController = searchController
     }
     
     func setupUI() {
         view.addSubview(learntAmallarTableView)
         learntAmallarTableView.delegate = self
         learntAmallarTableView.dataSource = self
-        learntAmallarTableView.translatesAutoresizingMaskIntoConstraints = false
-        learntAmallarTableView.frame = view.bounds
+        learntAmallarTableView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+        }
     }
 
 

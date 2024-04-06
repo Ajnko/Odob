@@ -14,6 +14,7 @@
 		1C2E2B802BB34E2F009361CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C2E2B7F2BB34E2F009361CE /* Assets.xcassets */; };
 		1C2E2B832BB34E2F009361CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2E2B812BB34E2F009361CE /* LaunchScreen.storyboard */; };
 		A61E09002BB9B65900952018 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61E08FF2BB9B65900952018 /* UIColorExtension.swift */; };
+		CC6035972BC1BA7A006A4218 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6035962BC1BA7A006A4218 /* SearchResultsViewController.swift */; };
 		CC634D202BB3FAAF002991B7 /* LearntTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D1F2BB3FAAF002991B7 /* LearntTasksViewController.swift */; };
 		CC634D222BB3FABB002991B7 /* DailyTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D212BB3FABB002991B7 /* DailyTasksViewController.swift */; };
 		CC634D242BB3FAC4002991B7 /* AllTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D232BB3FAC4002991B7 /* AllTasksViewController.swift */; };
@@ -40,6 +41,7 @@
 		5CB7F85DBF489B1B60424882 /* Pods-Odob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Odob.release.xcconfig"; path = "Target Support Files/Pods-Odob/Pods-Odob.release.xcconfig"; sourceTree = "<group>"; };
 		A61E08FF2BB9B65900952018 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		B4EDADF4A6A5514889DB34D3 /* Pods-Odob.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Odob.debug.xcconfig"; path = "Target Support Files/Pods-Odob/Pods-Odob.debug.xcconfig"; sourceTree = "<group>"; };
+		CC6035962BC1BA7A006A4218 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		CC634D1F2BB3FAAF002991B7 /* LearntTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntTasksViewController.swift; sourceTree = "<group>"; };
 		CC634D212BB3FABB002991B7 /* DailyTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTasksViewController.swift; sourceTree = "<group>"; };
 		CC634D232BB3FAC4002991B7 /* AllTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTasksViewController.swift; sourceTree = "<group>"; };
@@ -85,11 +87,11 @@
 		1C2E2B722BB34E2C009361CE /* Odob */ = {
 			isa = PBXGroup;
 			children = (
-				A61E08FE2BB9B64B00952018 /* Extension */,
-				CC9C4EA02BB35BB50015036B /* Model */,
-				CC9C4E9E2BB35BAB0015036B /* ViewModel */,
-				CC9C4E9F2BB35BB10015036B /* View */,
 				CC9C4EA12BB35BBA0015036B /* Application */,
+				CC9C4EA02BB35BB50015036B /* Model */,
+				CC9C4E9F2BB35BB10015036B /* View */,
+				CC9C4E9E2BB35BAB0015036B /* ViewModel */,
+				A61E08FE2BB9B64B00952018 /* Extension */,
 				1C2E2B7F2BB34E2F009361CE /* Assets.xcassets */,
 				1C2E2B842BB34E2F009361CE /* Info.plist */,
 				1C2E2B7C2BB34E2C009361CE /* Odob.xcdatamodeld */,
@@ -184,6 +186,7 @@
 			children = (
 				CC9D8B642BB4647800974C70 /* TasksListViewController.swift */,
 				CC9D8B6A2BB477BB00974C70 /* TasksDefinitionViewController.swift */,
+				CC6035962BC1BA7A006A4218 /* SearchResultsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				1C2E2B762BB34E2C009361CE /* SceneDelegate.swift in Sources */,
 				CC9D8B702BB47CD300974C70 /* ViewModel.swift in Sources */,
 				CC9D8B672BB46C9D00974C70 /* DailyTasksTableViewCell.swift in Sources */,
+				CC6035972BC1BA7A006A4218 /* SearchResultsViewController.swift in Sources */,
 				CC9D8B6D2BB479F200974C70 /* SectionTasksListTableViewCell.swift in Sources */,
 				CC9D8B652BB4647800974C70 /* TasksListViewController.swift in Sources */,
 				CC9D8B692BB4728E00974C70 /* Model.swift in Sources */,
