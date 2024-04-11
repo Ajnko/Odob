@@ -41,6 +41,7 @@ class TasksListViewController: UIViewController {
         view.addSubview(amallarTableView)
         amallarTableView.delegate = self
         amallarTableView.dataSource = self
+        amallarTableView.backgroundColor = UIColor.mainColor
         amallarTableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
@@ -70,6 +71,7 @@ extension TasksListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.amalID.text = "\(sunnah.id)."
             cell.amallarTitle.text = sunnah.name
             cell.amalDefinition.text = sunnah.hadis
+            cell.backgroundColor = UIColor.mainColor
         }
         return cell
     }

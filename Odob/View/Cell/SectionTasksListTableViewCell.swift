@@ -17,18 +17,21 @@ class SectionTasksListTableViewCell: UITableViewCell {
     let amalID: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 17)
+        label.textColor = UIColor.textColor
         return label
     }()
     
     let amallarTitle: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Helvetica-Bold", size: 16)
+        label.textColor = UIColor.textColor
         return label
     }()
     
     let amalDefinition: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
+        label.textColor = UIColor.textColor
         return label
     }()
     

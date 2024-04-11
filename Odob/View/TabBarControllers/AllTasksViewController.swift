@@ -23,18 +23,22 @@ class AllTasksViewController: UIViewController {
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
         controller.searchBar.placeholder = "Sunnat amal qidirish"
         controller.searchBar.searchBarStyle = .minimal
-        controller.searchBar.searchTextField.backgroundColor = .white
+        controller.searchBar.searchTextField.backgroundColor = UIColor.mainColor
+        controller.searchBar.searchTextField.textColor = UIColor.tabBarItemAccent
         return controller
     }()
     
     var viewModel: ViewModel!
     var imageIndices = [Int](repeating: 0, count: 4)
+    var selectedIndexPaths: [IndexPath] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //view settings
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.barTintColor = UIColor.mainColor
         navigationItem.searchController = searchController
         viewModel = ViewModel(sunnahTypes: Information.sunnahs, selectedTypeName: "")
         setupUI()
@@ -44,7 +48,7 @@ class AllTasksViewController: UIViewController {
         view.addSubview(amallarTableView)
         amallarTableView.delegate = self
         amallarTableView.dataSource = self
-        amallarTableView.backgroundColor = .systemMint
+        amallarTableView.backgroundColor = UIColor.tabBarItemAccent
         amallarTableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
@@ -86,6 +90,7 @@ extension AllTasksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AllTasksTableViewCell.identifier, for: indexPath) as! AllTasksTableViewCell
+        
         cell.amalTitle.text = viewModel.titleForRow(atIndex: indexPath.row)
         
         //change image
@@ -100,6 +105,8 @@ extension AllTasksViewController: UITableViewDelegate, UITableViewDataSource {
         let imageName = currentImageIndex == 0 ? "unchecked" : "checked"
         
         cell.checkmarkButton.setImage(UIImage(named: imageName), for: .normal)
+        cell.backgroundColor = UIColor.tabBarItemAccent
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -108,6 +115,7 @@ extension AllTasksViewController: UITableViewDelegate, UITableViewDataSource {
         guard let selectedTypeName = viewModel.titleForRow(atIndex: indexPath.row) else {
             return
         }
+        
         let vc = TasksListViewController(selectedTypeName: selectedTypeName)
         navigationController?.pushViewController(vc, animated: true)
     }

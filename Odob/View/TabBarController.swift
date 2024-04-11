@@ -55,10 +55,12 @@ class TabBarController: UITabBarController {
         
         roundLayer.fillColor = UIColor.tabBarItemAccent.cgColor
         
-        tabBar.backgroundColor = .systemBackground
+        tabBar.backgroundColor = #colorLiteral(red: 0.9176482558, green: 0.9176462293, blue: 0.8701192737, alpha: 1)
         tabBar.tintColor = .mainWhite
         tabBar.unselectedItemTintColor = .tabBarItemLight
-        tabBar.isTranslucent = false
+        tabBar.isTranslucent = true
+        tabBar.barTintColor = UIColor.mainColor
+        
         
         let fontAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.font: UIFont(name: "TimesNewRomanPSMT", size: 12) ?? UIFont.systemFont(ofSize: 12)
