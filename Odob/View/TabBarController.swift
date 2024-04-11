@@ -13,8 +13,12 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         generateTabBar()
-        tabBarAppereance()
         self.selectedIndex = 1
+        //MARK: - TabBar Settings
+        self.tabBar.backgroundColor = UIColor.mainColor
+        self.tabBar.tintColor = UIColor.mainWhite
+        self.tabBar.unselectedItemTintColor = .tabBarItemLight
+        self.tabBar.barTintColor = UIColor.mainColor
     }
     
     //Method generateTabBar
@@ -32,40 +36,5 @@ class TabBarController: UITabBarController {
         return UINavigationController(rootViewController: viewController)
     }
     
-    private func tabBarAppereance() {
-        let positionOnX: CGFloat = 10
-        let positionOnY: CGFloat = 14
-        let width = tabBar.bounds.width - positionOnX * 2
-        let height = tabBar.bounds.height + positionOnY * 2
-        
-        let roundLayer = CAShapeLayer()
-
-        let bezierPath = UIBezierPath(roundedRect: CGRect(
-            x: positionOnX,
-            y: tabBar.bounds.minY - positionOnY,
-            width: width,
-            height: height
-        ), cornerRadius: height / 2)
-        
-        roundLayer.path = bezierPath.cgPath
-        tabBar.layer.insertSublayer(roundLayer, at: 0)
-        
-        tabBar.itemWidth = width / 5
-        tabBar.itemPositioning = .centered
-        
-        roundLayer.fillColor = UIColor.tabBarItemAccent.cgColor
-        
-        tabBar.backgroundColor = #colorLiteral(red: 0.9176482558, green: 0.9176462293, blue: 0.8701192737, alpha: 1)
-        tabBar.tintColor = .mainWhite
-        tabBar.unselectedItemTintColor = .tabBarItemLight
-        tabBar.isTranslucent = true
-        tabBar.barTintColor = UIColor.mainColor
-        
-        
-        let fontAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: UIFont(name: "TimesNewRomanPSMT", size: 12) ?? UIFont.systemFont(ofSize: 12)
-        ]
-        UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
-    }
 }
 

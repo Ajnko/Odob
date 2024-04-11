@@ -21,7 +21,8 @@ class LearntTasksViewController: UIViewController {
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
         controller.searchBar.placeholder = "Sunnat amal qidirish"
         controller.searchBar.searchBarStyle = .minimal
-        controller.searchBar.searchTextField.backgroundColor = .white
+        controller.searchBar.searchTextField.backgroundColor = UIColor.mainColor
+        controller.searchBar.searchTextField.textColor = UIColor.tabBarItemAccent
         return controller
     }()
     
@@ -31,13 +32,14 @@ class LearntTasksViewController: UIViewController {
         setupUI()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchController
+        navigationController?.navigationBar.barTintColor = UIColor.mainColor
     }
     
     func setupUI() {
         view.addSubview(learntAmallarTableView)
         learntAmallarTableView.delegate = self
         learntAmallarTableView.dataSource = self
-        learntAmallarTableView.backgroundColor = .systemMint
+        learntAmallarTableView.backgroundColor = UIColor.mainColor
         learntAmallarTableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
@@ -64,6 +66,7 @@ extension LearntTasksViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DailyTasksTableViewCell.identifier, for: indexPath) as! DailyTasksTableViewCell
         cell.textLabel?.text = "h"
+        cell.backgroundColor = UIColor.mainColor
         return cell
     }
 }

@@ -11,58 +11,79 @@ import SnapKit
 @available(iOS 15.0, *)
 class DailyTasksViewController: UIViewController {
     
-    let homeTableView: UITableView = {
-       let tableview = UITableView()
-        tableview.register(DailyTasksTableViewCell.self, forCellReuseIdentifier: DailyTasksTableViewCell.identifier)
-        return tableview
+    let backgroundImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "backgroundimage")
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
+    let dailyTasksCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 15
+        layout.minimumInteritemSpacing = 15
+        layout.scrollDirection = .vertical
+        
+        let collectionview = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionview.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionview.backgroundColor = .clear
+        return collectionview
     }()
     
     let searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
         controller.searchBar.placeholder = "Sunnat amal qidirish"
         controller.searchBar.searchBarStyle = .minimal
-        controller.searchBar.searchTextField.backgroundColor = .white
+        controller.searchBar.searchTextField.backgroundColor = UIColor.mainColor
+        controller.searchBar.searchTextField.textColor = UIColor.tabBarItemAccent
         return controller
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.mainColor
         setupUI()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchController
+        
+        print(view.frame.width, view.frame.height)
     }
     
     func setupUI() {
-        view.addSubview(homeTableView)
-        homeTableView.delegate = self
-        homeTableView.dataSource = self
-        homeTableView.backgroundColor = .systemMint
-        homeTableView.snp.makeConstraints { make in
+        view.addSubview(backgroundImage)
+        backgroundImage.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        view.addSubview(dailyTasksCollectionView)
+        dailyTasksCollectionView.delegate = self
+        dailyTasksCollectionView.dataSource = self
+        dailyTasksCollectionView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview()
-            make.height.equalToSuperview()
+            make.centerX.width.height.equalToSuperview()
         }
     }
     
 }
 
 @available(iOS 15.0, *)
-extension DailyTasksViewController: UITableViewDelegate, UITableViewDataSource {
+extension DailyTasksViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height: CGFloat = 80
-        return height
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DailyTasksTableViewCell.identifier, for: indexPath) as! DailyTasksTableViewCell
-        cell.textLabel?.text = "hi"
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = UIColor.mainColor
+        cell.layer.cornerRadius = 15
+        cell.layer.borderColor = UIColor.textColor.cgColor
+        cell.layer.borderWidth = 2
+        cell.layer.masksToBounds = true
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (view.frame.width) - 40, height: (view.frame.height) / 10)
+    }
+    
 }

@@ -48,7 +48,7 @@ class AllTasksViewController: UIViewController {
         view.addSubview(amallarTableView)
         amallarTableView.delegate = self
         amallarTableView.dataSource = self
-        amallarTableView.backgroundColor = UIColor.tabBarItemAccent
+        amallarTableView.backgroundColor = UIColor.mainColor
         amallarTableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
