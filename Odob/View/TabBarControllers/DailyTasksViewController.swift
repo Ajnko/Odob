@@ -35,7 +35,7 @@ class DailyTasksViewController: UIViewController {
         controller.searchBar.placeholder = "Sunnat amal qidirish"
         controller.searchBar.searchBarStyle = .minimal
         controller.searchBar.searchTextField.backgroundColor = UIColor.mainColor
-        controller.searchBar.searchTextField.textColor = UIColor.tabBarItemAccent
+        controller.searchBar.searchTextField.textColor = UIColor.mainGray
         return controller
     }()
     

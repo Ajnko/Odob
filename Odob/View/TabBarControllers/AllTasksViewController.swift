@@ -24,7 +24,7 @@ class AllTasksViewController: UIViewController {
         controller.searchBar.placeholder = "Sunnat amal qidirish"
         controller.searchBar.searchBarStyle = .minimal
         controller.searchBar.searchTextField.backgroundColor = UIColor.mainColor
-        controller.searchBar.searchTextField.textColor = UIColor.tabBarItemAccent
+        controller.searchBar.searchTextField.textColor = UIColor.mainGray
         return controller
     }()
     
@@ -42,6 +42,7 @@ class AllTasksViewController: UIViewController {
         navigationItem.searchController = searchController
         viewModel = ViewModel(sunnahTypes: Information.sunnahs, selectedTypeName: "")
         setupUI()
+        
     }
     
     func setupUI() {
@@ -72,6 +73,8 @@ class AllTasksViewController: UIViewController {
         amallarTableView.reloadData()
         
     }
+    
+
     
     
 }
@@ -105,7 +108,7 @@ extension AllTasksViewController: UITableViewDelegate, UITableViewDataSource {
         let imageName = currentImageIndex == 0 ? "unchecked" : "checked"
         
         cell.checkmarkButton.setImage(UIImage(named: imageName), for: .normal)
-        cell.backgroundColor = UIColor.tabBarItemAccent
+        cell.backgroundColor = UIColor.mainColor
         cell.selectionStyle = .none
         
         return cell

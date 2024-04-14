@@ -9,13 +9,10 @@ import UIKit
 
 extension UIColor {
     
-    static var tabBarItemAccent: UIColor {
-        #colorLiteral(red: 0.9176482558, green: 0.9176462293, blue: 0.8701192737, alpha: 1)
-    }
-    static var mainWhite: UIColor {
+    static var mainBlack: UIColor {
         #colorLiteral(red: 0.05075808614, green: 0.1553114653, blue: 0.1411805451, alpha: 1)
     }
-    static var tabBarItemLight: UIColor {
+    static var mainGray: UIColor {
         #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     }
     

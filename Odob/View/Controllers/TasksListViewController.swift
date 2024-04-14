@@ -35,6 +35,13 @@ class TasksListViewController: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .never
         setupUI()
         viewModel = ViewModel(sunnahTypes: Information.sunnahs, selectedTypeName: selectedTypeName)
+        
+        //back button setting
+        let backbutton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backButtonTapped))
+        backbutton.tintColor = .black
+        backbutton.setBackgroundImage(UIImage(systemName: "arrow.backward"), for: .normal, barMetrics: .default)
+        navigationItem.setLeftBarButton(backbutton, animated: true)
+        
     }
     
     func setupUI() {
@@ -48,6 +55,10 @@ class TasksListViewController: UIViewController {
             make.width.equalToSuperview()
             make.height.equalToSuperview()
         }
+    }
+    
+    @objc func backButtonTapped(sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
     }
     
     

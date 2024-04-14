@@ -23,7 +23,9 @@ class TasksDefinitionViewController: UIViewController {
     let definitionOfAmal: UILabel = {
         let label = UILabel()
         label.numberOfLines = 5
+        label.font = .systemFont(ofSize: 18)
         label.textAlignment = .left
+        label.textColor = .textColor
         return label
     }()
     
@@ -31,6 +33,7 @@ class TasksDefinitionViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 5
         label.textAlignment = .left
+        label.textColor = .textColor
         return label
     }()
     
@@ -38,6 +41,7 @@ class TasksDefinitionViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 2
         label.textAlignment = .right
+        label.textColor = .textColor
         return label
     }()
     
@@ -61,9 +65,15 @@ class TasksDefinitionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //view settings
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.mainColor
         addProportiesToView()
         setConstraintsToSubviews()
+        
+        //back button setting
+        let backbutton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backButtonTapped))
+        backbutton.tintColor = .black
+        backbutton.setBackgroundImage(UIImage(systemName: "arrow.backward"), for: .normal, barMetrics: .default)
+        navigationItem.setLeftBarButton(backbutton, animated: true)
     }
     
     //Method addProportiesToView
@@ -104,9 +114,13 @@ class TasksDefinitionViewController: UIViewController {
         //createrOfHadis
         createrOfHadis.text = hadisBy
         createrOfHadis.snp.makeConstraints { make in
-            make.top.equalTo(hadisOfAmal.snp.bottom).offset(2)
+            make.top.equalTo(hadisOfAmal.snp.bottom).offset(8)
             make.right.equalTo(view.snp.right).offset(-10)
             make.width.equalTo(view.snp.width).multipliedBy(0.9)
         }
+    }
+    
+    @objc func backButtonTapped(sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
     }
 }

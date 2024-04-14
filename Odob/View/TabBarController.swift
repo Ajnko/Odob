@@ -16,8 +16,8 @@ class TabBarController: UITabBarController {
         self.selectedIndex = 1
         //MARK: - TabBar Settings
         self.tabBar.backgroundColor = UIColor.mainColor
-        self.tabBar.tintColor = UIColor.mainWhite
-        self.tabBar.unselectedItemTintColor = .tabBarItemLight
+        self.tabBar.tintColor = UIColor.mainBlack
+        self.tabBar.unselectedItemTintColor = .mainGray
         self.tabBar.barTintColor = UIColor.mainColor
     }
     
