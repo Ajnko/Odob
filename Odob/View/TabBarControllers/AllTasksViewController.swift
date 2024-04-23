@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 @available(iOS 15.0, *)
-class AllTasksViewController: UIViewController {
+class AllTasksViewController: UIViewController, Themeable {
     
     //MARK: - Proporties
     
@@ -42,6 +42,7 @@ class AllTasksViewController: UIViewController {
         navigationItem.searchController = searchController
         viewModel = ViewModel(sunnahTypes: Information.sunnahs, selectedTypeName: "")
         setupUI()
+        updateAppAppearance()
         
     }
     
@@ -72,6 +73,26 @@ class AllTasksViewController: UIViewController {
         
         amallarTableView.reloadData()
         
+    }
+    
+    func updateAppAppearance() {
+        
+        let isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
+        let tabBarVC = tabBarController as? TabBarController
+        tabBarVC?.applyDarkMode(isDarkModeEnabled)
+        
+    }
+    
+    func applyTheme(_ isDarkModeEnabled: Bool) {
+        if isDarkModeEnabled {
+            // Apply dark mode appearance
+            amallarTableView.backgroundColor = .mainBlack
+            // Update other UI elements for dark mode
+        } else {
+            // Apply light mode appearance
+            amallarTableView.backgroundColor = .mainColor
+            // Update other UI elements for light mode
+        }
     }
     
 
@@ -108,9 +129,11 @@ extension AllTasksViewController: UITableViewDelegate, UITableViewDataSource {
         let imageName = currentImageIndex == 0 ? "unchecked" : "checked"
         
         cell.checkmarkButton.setImage(UIImage(named: imageName), for: .normal)
-        cell.backgroundColor = UIColor.mainColor
+        cell.backgroundColor = .mainColor
         cell.selectionStyle = .none
         
+        cell.applyTheme(UserDefaults.standard.bool(forKey: "isDarkModeEnabled"))
+
         return cell
     }
     

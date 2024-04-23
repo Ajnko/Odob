@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 @available(iOS 15.0, *)
-class DailyTasksViewController: UIViewController {
+class DailyTasksViewController: UIViewController, Themeable {
     
     let backgroundImage: UIImageView = {
         let image = UIImageView()
@@ -25,7 +25,7 @@ class DailyTasksViewController: UIViewController {
         layout.scrollDirection = .vertical
         
         let collectionview = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionview.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionview.register(DailyTasksCollectionViewCell.self, forCellWithReuseIdentifier: DailyTasksCollectionViewCell.identifier)
         collectionview.backgroundColor = .clear
         return collectionview
     }()
@@ -45,8 +45,7 @@ class DailyTasksViewController: UIViewController {
         setupUI()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchController
-        
-        print(view.frame.width, view.frame.height)
+        updateAppAppearance()
     }
     
     func setupUI() {
@@ -64,6 +63,26 @@ class DailyTasksViewController: UIViewController {
         }
     }
     
+    func updateAppAppearance() {
+        
+        let isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
+        let tabBarVC = tabBarController as? TabBarController
+        tabBarVC?.applyDarkMode(isDarkModeEnabled)
+        
+    }
+    
+    func applyTheme(_ isDarkModeEnabled: Bool) {
+        if isDarkModeEnabled {
+            // Apply dark mode appearance
+            view.backgroundColor = .mainBlack
+            // Update other UI elements for dark mode
+        } else {
+            // Apply light mode appearance
+            view.backgroundColor = .mainColor
+            // Update other UI elements for light mode
+        }
+    }
+    
 }
 
 @available(iOS 15.0, *)
@@ -73,12 +92,14 @@ extension DailyTasksViewController: UICollectionViewDataSource, UICollectionView
         return 3
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DailyTasksCollectionViewCell.identifier, for: indexPath) as! DailyTasksCollectionViewCell
         cell.backgroundColor = UIColor.mainColor
         cell.layer.cornerRadius = 15
         cell.layer.borderColor = UIColor.textColor.cgColor
         cell.layer.borderWidth = 2
         cell.layer.masksToBounds = true
+        
+        cell.applyTheme(UserDefaults.standard.bool(forKey: "isDarkModeEnabled"))
         return cell
     }
     

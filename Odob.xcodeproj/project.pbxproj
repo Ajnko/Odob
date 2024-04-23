@@ -14,13 +14,16 @@
 		1C2E2B802BB34E2F009361CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C2E2B7F2BB34E2F009361CE /* Assets.xcassets */; };
 		1C2E2B832BB34E2F009361CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2E2B812BB34E2F009361CE /* LaunchScreen.storyboard */; };
 		A61E09002BB9B65900952018 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61E08FF2BB9B65900952018 /* UIColorExtension.swift */; };
+		CC57C60B2BCC5B3100999334 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC57C60A2BCC5B3100999334 /* SettingsViewController.swift */; };
+		CC57C60D2BCC5BB100999334 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC57C60C2BCC5BB100999334 /* SettingsTableViewCell.swift */; };
 		CC6035972BC1BA7A006A4218 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6035962BC1BA7A006A4218 /* SearchResultsViewController.swift */; };
 		CC634D202BB3FAAF002991B7 /* LearntTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D1F2BB3FAAF002991B7 /* LearntTasksViewController.swift */; };
 		CC634D222BB3FABB002991B7 /* DailyTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D212BB3FABB002991B7 /* DailyTasksViewController.swift */; };
 		CC634D242BB3FAC4002991B7 /* AllTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D232BB3FAC4002991B7 /* AllTasksViewController.swift */; };
 		CC634D272BB40159002991B7 /* AllTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D262BB40159002991B7 /* AllTasksTableViewCell.swift */; };
+		CC69D2592BCDA5E6006AA740 /* DailyTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69D2582BCDA5E6006AA740 /* DailyTasksCollectionViewCell.swift */; };
+		CC69D25D2BCDA7F5006AA740 /* LearntTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69D25C2BCDA7F5006AA740 /* LearntTableViewCell.swift */; };
 		CC9D8B652BB4647800974C70 /* TasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B642BB4647800974C70 /* TasksListViewController.swift */; };
-		CC9D8B672BB46C9D00974C70 /* DailyTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B662BB46C9D00974C70 /* DailyTasksTableViewCell.swift */; };
 		CC9D8B692BB4728E00974C70 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B682BB4728E00974C70 /* Model.swift */; };
 		CC9D8B6B2BB477BB00974C70 /* TasksDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B6A2BB477BB00974C70 /* TasksDefinitionViewController.swift */; };
 		CC9D8B6D2BB479F200974C70 /* SectionTasksListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B6C2BB479F200974C70 /* SectionTasksListTableViewCell.swift */; };
@@ -41,13 +44,16 @@
 		5CB7F85DBF489B1B60424882 /* Pods-Odob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Odob.release.xcconfig"; path = "Target Support Files/Pods-Odob/Pods-Odob.release.xcconfig"; sourceTree = "<group>"; };
 		A61E08FF2BB9B65900952018 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		B4EDADF4A6A5514889DB34D3 /* Pods-Odob.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Odob.debug.xcconfig"; path = "Target Support Files/Pods-Odob/Pods-Odob.debug.xcconfig"; sourceTree = "<group>"; };
+		CC57C60A2BCC5B3100999334 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CC57C60C2BCC5BB100999334 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		CC6035962BC1BA7A006A4218 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		CC634D1F2BB3FAAF002991B7 /* LearntTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntTasksViewController.swift; sourceTree = "<group>"; };
 		CC634D212BB3FABB002991B7 /* DailyTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTasksViewController.swift; sourceTree = "<group>"; };
 		CC634D232BB3FAC4002991B7 /* AllTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTasksViewController.swift; sourceTree = "<group>"; };
 		CC634D262BB40159002991B7 /* AllTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTasksTableViewCell.swift; sourceTree = "<group>"; };
+		CC69D2582BCDA5E6006AA740 /* DailyTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTasksCollectionViewCell.swift; sourceTree = "<group>"; };
+		CC69D25C2BCDA7F5006AA740 /* LearntTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntTableViewCell.swift; sourceTree = "<group>"; };
 		CC9D8B642BB4647800974C70 /* TasksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewController.swift; sourceTree = "<group>"; };
-		CC9D8B662BB46C9D00974C70 /* DailyTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTasksTableViewCell.swift; sourceTree = "<group>"; };
 		CC9D8B682BB4728E00974C70 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		CC9D8B6A2BB477BB00974C70 /* TasksDefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksDefinitionViewController.swift; sourceTree = "<group>"; };
 		CC9D8B6C2BB479F200974C70 /* SectionTasksListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTasksListTableViewCell.swift; sourceTree = "<group>"; };
@@ -122,6 +128,7 @@
 				CC634D232BB3FAC4002991B7 /* AllTasksViewController.swift */,
 				CC634D212BB3FABB002991B7 /* DailyTasksViewController.swift */,
 				CC634D1F2BB3FAAF002991B7 /* LearntTasksViewController.swift */,
+				CC57C60A2BCC5B3100999334 /* SettingsViewController.swift */,
 			);
 			path = TabBarControllers;
 			sourceTree = "<group>";
@@ -130,8 +137,10 @@
 			isa = PBXGroup;
 			children = (
 				CC634D262BB40159002991B7 /* AllTasksTableViewCell.swift */,
-				CC9D8B662BB46C9D00974C70 /* DailyTasksTableViewCell.swift */,
+				CC69D2582BCDA5E6006AA740 /* DailyTasksCollectionViewCell.swift */,
 				CC9D8B6C2BB479F200974C70 /* SectionTasksListTableViewCell.swift */,
+				CC57C60C2BCC5BB100999334 /* SettingsTableViewCell.swift */,
+				CC69D25C2BCDA7F5006AA740 /* LearntTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -314,17 +323,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C2E2B782BB34E2C009361CE /* TabBarController.swift in Sources */,
+				CC69D25D2BCDA7F5006AA740 /* LearntTableViewCell.swift in Sources */,
 				1C2E2B7E2BB34E2C009361CE /* Odob.xcdatamodeld in Sources */,
+				CC57C60D2BCC5BB100999334 /* SettingsTableViewCell.swift in Sources */,
 				A61E09002BB9B65900952018 /* UIColorExtension.swift in Sources */,
 				CC634D272BB40159002991B7 /* AllTasksTableViewCell.swift in Sources */,
 				CC634D202BB3FAAF002991B7 /* LearntTasksViewController.swift in Sources */,
 				1C2E2B742BB34E2C009361CE /* AppDelegate.swift in Sources */,
 				1C2E2B762BB34E2C009361CE /* SceneDelegate.swift in Sources */,
 				CC9D8B702BB47CD300974C70 /* ViewModel.swift in Sources */,
-				CC9D8B672BB46C9D00974C70 /* DailyTasksTableViewCell.swift in Sources */,
 				CC6035972BC1BA7A006A4218 /* SearchResultsViewController.swift in Sources */,
 				CC9D8B6D2BB479F200974C70 /* SectionTasksListTableViewCell.swift in Sources */,
 				CC9D8B652BB4647800974C70 /* TasksListViewController.swift in Sources */,
+				CC69D2592BCDA5E6006AA740 /* DailyTasksCollectionViewCell.swift in Sources */,
+				CC57C60B2BCC5B3100999334 /* SettingsViewController.swift in Sources */,
 				CC9D8B692BB4728E00974C70 /* Model.swift in Sources */,
 				CC634D222BB3FABB002991B7 /* DailyTasksViewController.swift in Sources */,
 				CC9D8B6B2BB477BB00974C70 /* TasksDefinitionViewController.swift in Sources */,

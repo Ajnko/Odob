@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 
 @available(iOS 15.0, *)
-class LearntTasksViewController: UIViewController {
+class LearntTasksViewController: UIViewController, Themeable {
     
     let learntAmallarTableView: UITableView = {
        let tableview = UITableView()
-        tableview.register(DailyTasksTableViewCell.self, forCellReuseIdentifier: DailyTasksTableViewCell.identifier)
+        tableview.register(LearntTableViewCell.self, forCellReuseIdentifier: LearntTableViewCell.identifier)
         return tableview
     }()
     
@@ -33,6 +33,7 @@ class LearntTasksViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchController
         navigationController?.navigationBar.barTintColor = UIColor.mainColor
+        updateAppAppearance()
     }
     
     func setupUI() {
@@ -45,6 +46,26 @@ class LearntTasksViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalToSuperview()
+        }
+    }
+    
+    func updateAppAppearance() {
+        
+        let isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
+        let tabBarVC = tabBarController as? TabBarController
+        tabBarVC?.applyDarkMode(isDarkModeEnabled)
+        
+    }
+    
+    func applyTheme(_ isDarkModeEnabled: Bool) {
+        if isDarkModeEnabled {
+            // Apply dark mode appearance
+            learntAmallarTableView.backgroundColor = .mainBlack
+            // Update other UI elements for dark mode
+        } else {
+            // Apply light mode appearance
+            learntAmallarTableView.backgroundColor = .mainColor
+            // Update other UI elements for light mode
         }
     }
 
@@ -64,9 +85,11 @@ extension LearntTasksViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DailyTasksTableViewCell.identifier, for: indexPath) as! DailyTasksTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: LearntTableViewCell.identifier, for: indexPath) as! LearntTableViewCell
         cell.textLabel?.text = "h"
         cell.backgroundColor = UIColor.mainColor
+        
+        cell.applyTheme(UserDefaults.standard.bool(forKey: "isDarkModeEnabled"))
         return cell
     }
 }

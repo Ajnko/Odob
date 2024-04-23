@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllTasksTableViewCell: UITableViewCell {
+class AllTasksTableViewCell: UITableViewCell, Themeable {
     
     //MARK: - Properties
     static let identifier = "AmallarSectionTableViewCell"
@@ -52,6 +52,18 @@ class AllTasksTableViewCell: UITableViewCell {
     
     func updateUI(with data: SunnahType)  {
         amalTitle.text = data.typeName
+    }
+    
+    func applyTheme(_ isDarkModeEnabled: Bool) {
+        if isDarkModeEnabled {
+            self.backgroundColor = .mainBlack
+            self.amalTitle.textColor = .mainColor
+            self.checkmarkButton.tintColor = .mainColor
+        } else {
+            self.backgroundColor = .mainColor
+            self.amalTitle.textColor = .textColor
+            self.checkmarkButton.tintColor = .mainBlack
+        }
     }
     
 }
