@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class AllTasksTableViewCell: UITableViewCell, Themeable {
     
@@ -21,7 +22,7 @@ class AllTasksTableViewCell: UITableViewCell, Themeable {
         let label = UILabel()
         label.text = "Уйқудан уйғонишдаги суннатлар"
         label.font = .boldSystemFont(ofSize: 18)
-        label.textColor = #colorLiteral(red: 0.3054962754, green: 0.4670232534, blue: 0.4432755113, alpha: 1)
+        label.textColor = .textColor
         return label
     }()
     

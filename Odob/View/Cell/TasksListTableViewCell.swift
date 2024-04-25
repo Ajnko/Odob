@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SectionTasksListTableViewCell: UITableViewCell {
+class TasksListTableViewCell: UITableViewCell, Themeable {
     
     //MARK: - Proporties
     
@@ -73,6 +73,20 @@ class SectionTasksListTableViewCell: UITableViewCell {
             make.top.equalTo(amallarTitle.snp.bottom).offset(4)
             make.left.equalTo(amallarTitle.snp.left)
             make.width.equalTo(amallarTitle.snp.width)
+        }
+    }
+    
+    func applyTheme(_ isDarkModeEnabled: Bool) {
+        if isDarkModeEnabled {
+            self.backgroundColor = .mainBlack
+//            self.amalID.textColor = .mainColor
+//            self.amallarTitle.textColor = .mainColor
+//            self.amalDefinition.textColor = .mainColor
+        } else {
+            self.backgroundColor = .mainColor
+//            self.amalID.textColor = .textColor
+//            self.amallarTitle.textColor = .textColor
+//            self.amalDefinition.textColor = .textColor
         }
     }
     

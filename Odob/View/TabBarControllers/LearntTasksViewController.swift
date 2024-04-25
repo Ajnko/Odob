@@ -61,10 +61,14 @@ class LearntTasksViewController: UIViewController, Themeable {
         if isDarkModeEnabled {
             // Apply dark mode appearance
             learntAmallarTableView.backgroundColor = .mainBlack
+            self.navigationController?.navigationBar.barTintColor = .mainBlack
+            self.learntAmallarTableView.reloadData()
             // Update other UI elements for dark mode
         } else {
             // Apply light mode appearance
             learntAmallarTableView.backgroundColor = .mainColor
+            self.navigationController?.navigationBar.barTintColor = .mainColor
+            self.learntAmallarTableView.reloadData()
             // Update other UI elements for light mode
         }
     }
@@ -86,8 +90,8 @@ extension LearntTasksViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LearntTableViewCell.identifier, for: indexPath) as! LearntTableViewCell
-        cell.textLabel?.text = "h"
         cell.backgroundColor = UIColor.mainColor
+        cell.selectionStyle = .none
         
         cell.applyTheme(UserDefaults.standard.bool(forKey: "isDarkModeEnabled"))
         return cell

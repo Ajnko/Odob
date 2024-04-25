@@ -26,6 +26,7 @@ class SettingsViewController: UIViewController, Themeable {
         return controller
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .mainColor
@@ -49,39 +50,42 @@ class SettingsViewController: UIViewController, Themeable {
         }
         
         //MARK: - HeaderView for SettingsTableView
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 120))
-        header.backgroundColor = .mainColor
-        
-        //MARK: - HeaderView properties
-        let profileImageView = UIImageView(frame: CGRect(x: 15, y: 20, width: 90, height: 90))
-        profileImageView.image = UIImage(systemName: "person.circle.fill")
-        profileImageView.backgroundColor = .mainColor
-        profileImageView.layer.cornerRadius = 45
-        profileImageView.contentMode = .scaleAspectFit
-        profileImageView.tintColor = .mainBlack
-        header.addSubview(profileImageView)
-        
-        let nameLabel = UILabel(frame: CGRect(x: 135, y: 20, width: 200, height: 30))
-        nameLabel.text = "User Name"
-        nameLabel.font = .boldSystemFont(ofSize: 25)
-        nameLabel.textColor = .textColor
-        nameLabel.backgroundColor = .mainColor
-        header.addSubview(nameLabel)
-        
-        let surnameLabel = UILabel(frame: CGRect(x: 135, y: 60, width: 200, height: 30))
-        surnameLabel.text = "User Surname"
-        surnameLabel.font = .boldSystemFont(ofSize: 25)
-        surnameLabel.textColor = .textColor
-        surnameLabel.backgroundColor = .mainColor
-        header.addSubview(surnameLabel)
+        let header = SettingsHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 120))
         settingsTableView.tableHeaderView = header
+//        //MARK: - HeaderView properties
+//        let profileImageView = UIImageView(frame: CGRect(x: 15, y: 20, width: 90, height: 90))
+//        profileImageView.image = UIImage(systemName: "person.circle.fill")
+//        profileImageView.backgroundColor = .mainColor
+//        profileImageView.layer.cornerRadius = 45
+//        profileImageView.contentMode = .scaleAspectFit
+//        profileImageView.tintColor = .mainBlack
+//        header.addSubview(profileImageView)
+//        
+//        let nameLabel = UILabel(frame: CGRect(x: 135, y: 20, width: 200, height: 30))
+//        nameLabel.text = "User Name"
+//        nameLabel.font = .boldSystemFont(ofSize: 25)
+//        nameLabel.textColor = .textColor
+//        nameLabel.backgroundColor = .mainColor
+//        header.addSubview(nameLabel)
+//        
+//        let surnameLabel = UILabel(frame: CGRect(x: 135, y: 60, width: 200, height: 30))
+//        surnameLabel.text = "User Surname"
+//        surnameLabel.font = .boldSystemFont(ofSize: 25)
+//        surnameLabel.textColor = .textColor
+//        surnameLabel.backgroundColor = .mainColor
+//        header.addSubview(surnameLabel)
+//        settingsTableView.tableHeaderView = header
     }
     
     
     @objc func darkModeSwitchChanged(_ sender: UISwitch) {
+        let isDarkModeEnabled = sender.isOn
         UserDefaults.standard.set(sender.isOn, forKey: "isDarkModeEnabled")
         updateAppAppearance()
         applyTheme(sender.isOn)
+        if let headerView = settingsTableView.tableHeaderView as? SettingsHeaderView {
+            headerView.applyTheme(isDarkModeEnabled)
+        }
         settingsTableView.reloadData()
     }
     
@@ -98,11 +102,19 @@ class SettingsViewController: UIViewController, Themeable {
             // Apply dark mode appearance
             settingsTableView.backgroundColor = .mainBlack
             settingsTableView.tableHeaderView?.backgroundColor = .mainBlack
+            view.backgroundColor = .mainBlack
+            self.navigationController?.navigationBar.barTintColor = .mainBlack
+            self.settingsTableView.reloadData()
+//            self.navigationController?.navigationBar.barTintColor = .mainColor
             // Update other UI elements for dark mode
         } else {
             // Apply light mode appearance
             settingsTableView.backgroundColor = .mainColor
             settingsTableView.tableHeaderView?.backgroundColor = .mainColor
+            view.backgroundColor = .mainColor
+            self.navigationController?.navigationBar.barTintColor = .mainColor
+            self.settingsTableView.reloadData()
+//            self.navigationController?.navigationBar.barTintColor = .black
             // Update other UI elements for light mode
         }
     }

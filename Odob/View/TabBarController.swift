@@ -12,7 +12,7 @@ protocol Themeable {
 }
 
 @available(iOS 15.0, *)
-class TabBarController: UITabBarController {
+class TabBarController: UITabBarController, Themeable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +57,20 @@ class TabBarController: UITabBarController {
     private func applyDarkModeToViewController(_ viewController: UIViewController, isDarkModeEnabled: Bool) {
         if let themeableVC = viewController as? Themeable {
             themeableVC.applyTheme(isDarkModeEnabled)
+        }
+    }
+    
+    func applyTheme(_ isDarkModeEnabled: Bool) {
+        if isDarkModeEnabled {
+            self.tabBar.barTintColor = .mainBlack
+            self.tabBar.tintColor = .mainColor
+            self.tabBar.backgroundColor = .mainBlack
+            self.tabBar.unselectedItemTintColor = .mainColor
+        } else {
+            self.tabBar.barTintColor = .mainColor
+            self.tabBar.tintColor = .mainBlack
+            self.tabBar.backgroundColor = .mainColor
+            self.tabBar.unselectedItemTintColor = .mainBlack
         }
     }
     

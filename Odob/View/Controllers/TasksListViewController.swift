@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-class TasksListViewController: UIViewController {
+class TasksListViewController: UIViewController, Themeable {
     
     let amallarTableView: UITableView = {
         let tableview = UITableView()
-        tableview.register(SectionTasksListTableViewCell.self, forCellReuseIdentifier: SectionTasksListTableViewCell.identifier)
+        tableview.register(TasksListTableViewCell.self, forCellReuseIdentifier: TasksListTableViewCell.identifier)
         return tableview
     }()
     
@@ -57,12 +57,26 @@ class TasksListViewController: UIViewController {
         }
     }
     
+    func applyTheme(_ isDarkModeEnabled: Bool) {
+        if isDarkModeEnabled {
+            view.backgroundColor = .mainBlack
+            self.amallarTableView.backgroundColor = .mainBlack
+            //            self.navigationController?.navigationBar.barTintColor = .mainBlack
+            self.amallarTableView.reloadData()
+        } else {
+            //            view.backgroundColor = .mainColor
+            amallarTableView.backgroundColor = .mainColor
+            //            self.navigationController?.navigationBar.barTintColor = .mainColor
+            self.amallarTableView.reloadData()
+        }
+    }
+    
     @objc func backButtonTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
-    
-    
 }
+
+
 
 extension TasksListViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -77,13 +91,15 @@ extension TasksListViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SectionTasksListTableViewCell.identifier, for: indexPath) as! SectionTasksListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TasksListTableViewCell.identifier, for: indexPath) as! TasksListTableViewCell
         if let sunnah = viewModel.sunnahForIndexPath(indexPath) {
             cell.amalID.text = "\(sunnah.id)."
             cell.amallarTitle.text = sunnah.name
             cell.amalDefinition.text = sunnah.hadis
-            cell.backgroundColor = UIColor.mainColor
+            
         }
+        cell.backgroundColor = UIColor.mainColor
+        //                cell.applyTheme(UserDefaults.standard.bool(forKey: "isDarkModeEnabled"))
         return cell
     }
     

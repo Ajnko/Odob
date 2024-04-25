@@ -75,10 +75,14 @@ class DailyTasksViewController: UIViewController, Themeable {
         if isDarkModeEnabled {
             // Apply dark mode appearance
             view.backgroundColor = .mainBlack
+            self.navigationController?.navigationBar.barTintColor = .mainBlack
+            self.dailyTasksCollectionView.reloadData()
             // Update other UI elements for dark mode
         } else {
             // Apply light mode appearance
             view.backgroundColor = .mainColor
+            self.navigationController?.navigationBar.barTintColor = .mainColor
+            self.dailyTasksCollectionView.reloadData()
             // Update other UI elements for light mode
         }
     }
