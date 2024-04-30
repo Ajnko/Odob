@@ -11,14 +11,15 @@ import SnapKit
 @available(iOS 15.0, *)
 class DailyTasksViewController: UIViewController, Themeable {
     
-    let backgroundImage: UIImageView = {
+    //MARK: - Properties
+    private let backgroundImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "backgroundimage")
         image.contentMode = .scaleAspectFit
         return image
     }()
     
-    let dailyTasksCollectionView: UICollectionView = {
+    private let dailyTasksCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 15
         layout.minimumInteritemSpacing = 15
@@ -30,7 +31,7 @@ class DailyTasksViewController: UIViewController, Themeable {
         return collectionview
     }()
     
-    let searchController: UISearchController = {
+    private let searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
         controller.searchBar.placeholder = "Sunnat amal qidirish"
         controller.searchBar.searchBarStyle = .minimal
@@ -39,16 +40,24 @@ class DailyTasksViewController: UIViewController, Themeable {
         return controller
     }()
     
+    var viewModel: DailyTasksViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.mainColor
         setupUI()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.searchController = searchController
+        configureNavigationBar()
         updateAppAppearance()
+        
+        viewModel = DailyTasksViewModel(sunnahTypes: Information.sunnahs, currentDate: Date())
+        
+        updateUI()
+
+        
     }
     
-    func setupUI() {
+    //MARK: - UI setup
+    private func setupUI() {
         view.addSubview(backgroundImage)
         backgroundImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -63,7 +72,26 @@ class DailyTasksViewController: UIViewController, Themeable {
         }
     }
     
-    func updateAppAppearance() {
+    func updateUI() {
+        guard let sunnah = viewModel.currentSunnah() else {
+            print("No Sunnah data available")
+            return
+        }
+        print("Current Sunnah: \(sunnah.name)")
+        
+        dailyTasksCollectionView.reloadData()
+    }
+    
+    
+    //MARK: - NavigationBar configuration
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.barTintColor = .mainColor
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.searchController = searchController
+    }
+    
+    //MARK: - Updating appearance when application mode changed
+    private func updateAppAppearance() {
         
         let isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
         let tabBarVC = tabBarController as? TabBarController
@@ -71,6 +99,7 @@ class DailyTasksViewController: UIViewController, Themeable {
         
     }
     
+    //MARK: - Dark Mode changing
     func applyTheme(_ isDarkModeEnabled: Bool) {
         if isDarkModeEnabled {
             // Apply dark mode appearance
@@ -93,7 +122,7 @@ class DailyTasksViewController: UIViewController, Themeable {
 extension DailyTasksViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 1
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DailyTasksCollectionViewCell.identifier, for: indexPath) as! DailyTasksCollectionViewCell
@@ -104,6 +133,10 @@ extension DailyTasksViewController: UICollectionViewDataSource, UICollectionView
         cell.layer.masksToBounds = true
         
         cell.applyTheme(UserDefaults.standard.bool(forKey: "isDarkModeEnabled"))
+        
+        if let sunnah = viewModel.currentSunnah() {
+            cell.configureView(with: sunnah)
+        }
         return cell
     }
     

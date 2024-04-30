@@ -11,13 +11,13 @@ import SnapKit
 @available(iOS 15.0, *)
 class LearntTasksViewController: UIViewController, Themeable {
     
-    let learntAmallarTableView: UITableView = {
+    private let learntAmallarTableView: UITableView = {
        let tableview = UITableView()
         tableview.register(LearntTableViewCell.self, forCellReuseIdentifier: LearntTableViewCell.identifier)
         return tableview
     }()
     
-    let searchController: UISearchController = {
+    private let searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
         controller.searchBar.placeholder = "Sunnat amal qidirish"
         controller.searchBar.searchBarStyle = .minimal
@@ -30,13 +30,12 @@ class LearntTasksViewController: UIViewController, Themeable {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupUI()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.searchController = searchController
-        navigationController?.navigationBar.barTintColor = UIColor.mainColor
+        configureNavigationBar()
         updateAppAppearance()
     }
     
-    func setupUI() {
+    //MARK: - UI setup
+    private func setupUI() {
         view.addSubview(learntAmallarTableView)
         learntAmallarTableView.delegate = self
         learntAmallarTableView.dataSource = self
@@ -49,7 +48,15 @@ class LearntTasksViewController: UIViewController, Themeable {
         }
     }
     
-    func updateAppAppearance() {
+    //MARK: - NavigationBar configuration
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.searchController = searchController
+        navigationController?.navigationBar.barTintColor = UIColor.mainColor
+    }
+    
+    //MARK: - Updating appearance when application mode changed
+    private func updateAppAppearance() {
         
         let isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
         let tabBarVC = tabBarController as? TabBarController
@@ -57,6 +64,7 @@ class LearntTasksViewController: UIViewController, Themeable {
         
     }
     
+    //MARK: - Dark Mode changing
     func applyTheme(_ isDarkModeEnabled: Bool) {
         if isDarkModeEnabled {
             // Apply dark mode appearance

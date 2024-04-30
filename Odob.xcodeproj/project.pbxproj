@@ -23,6 +23,7 @@
 		CC634D272BB40159002991B7 /* AllTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC634D262BB40159002991B7 /* AllTasksTableViewCell.swift */; };
 		CC69D2592BCDA5E6006AA740 /* DailyTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69D2582BCDA5E6006AA740 /* DailyTasksCollectionViewCell.swift */; };
 		CC69D25D2BCDA7F5006AA740 /* LearntTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69D25C2BCDA7F5006AA740 /* LearntTableViewCell.swift */; };
+		CC71B1FA2BDD68D1002773BE /* DailyTasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC71B1F92BDD68D1002773BE /* DailyTasksViewModel.swift */; };
 		CC99E45B2BD99FEA00FF736A /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99E45A2BD99FEA00FF736A /* SettingsHeaderView.swift */; };
 		CC9D8B652BB4647800974C70 /* TasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B642BB4647800974C70 /* TasksListViewController.swift */; };
 		CC9D8B692BB4728E00974C70 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D8B682BB4728E00974C70 /* Model.swift */; };
@@ -54,6 +55,7 @@
 		CC634D262BB40159002991B7 /* AllTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTasksTableViewCell.swift; sourceTree = "<group>"; };
 		CC69D2582BCDA5E6006AA740 /* DailyTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTasksCollectionViewCell.swift; sourceTree = "<group>"; };
 		CC69D25C2BCDA7F5006AA740 /* LearntTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntTableViewCell.swift; sourceTree = "<group>"; };
+		CC71B1F92BDD68D1002773BE /* DailyTasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTasksViewModel.swift; sourceTree = "<group>"; };
 		CC99E45A2BD99FEA00FF736A /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		CC9D8B642BB4647800974C70 /* TasksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewController.swift; sourceTree = "<group>"; };
 		CC9D8B682BB4728E00974C70 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				CC9D8B6F2BB47CD300974C70 /* ViewModel.swift */,
+				CC71B1F92BDD68D1002773BE /* DailyTasksViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				1C2E2B7E2BB34E2C009361CE /* Odob.xcdatamodeld in Sources */,
 				CC57C60D2BCC5BB100999334 /* SettingsTableViewCell.swift in Sources */,
 				A61E09002BB9B65900952018 /* UIColorExtension.swift in Sources */,
+				CC71B1FA2BDD68D1002773BE /* DailyTasksViewModel.swift in Sources */,
 				CC634D272BB40159002991B7 /* AllTasksTableViewCell.swift in Sources */,
 				CC634D202BB3FAAF002991B7 /* LearntTasksViewController.swift in Sources */,
 				1C2E2B742BB34E2C009361CE /* AppDelegate.swift in Sources */,

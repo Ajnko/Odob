@@ -13,13 +13,13 @@ class AllTasksViewController: UIViewController, Themeable {
     
     //MARK: - Proporties
     
-    let amallarTableView: UITableView = {
+    private let amallarTableView: UITableView = {
         let tableview = UITableView()
         tableview.register(AllTasksTableViewCell.self, forCellReuseIdentifier: AllTasksTableViewCell.identifier)
         return tableview
     }()
     
-    let searchController: UISearchController = {
+    private let searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
         controller.searchBar.placeholder = "Sunnat amal qidirish"
         controller.searchBar.searchBarStyle = .minimal
@@ -36,17 +36,15 @@ class AllTasksViewController: UIViewController, Themeable {
         super.viewDidLoad()
         //view settings
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.barTintColor = UIColor.mainColor
-        navigationItem.searchController = searchController
+        configureNavigationBar()
         viewModel = ViewModel(sunnahTypes: Information.sunnahs, selectedTypeName: "")
         setupUI()
         updateAppAppearance()
         
     }
     
-    func setupUI() {
+    //MARK: - UI Setup
+    private func setupUI() {
         view.addSubview(amallarTableView)
         amallarTableView.delegate = self
         amallarTableView.dataSource = self
@@ -57,6 +55,14 @@ class AllTasksViewController: UIViewController, Themeable {
             make.width.equalToSuperview()
             make.height.equalToSuperview()
         }
+    }
+    
+    //MARK: - Navigation Configuration
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.barTintColor = UIColor.mainColor
+        navigationItem.searchController = searchController
     }
     
     //MARK: - Actions -
@@ -75,7 +81,8 @@ class AllTasksViewController: UIViewController, Themeable {
         
     }
     
-    func updateAppAppearance() {
+    //MARK: - Updating appearance when application mode changed
+    private func updateAppAppearance() {
         
         let isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
         let tabBarVC = tabBarController as? TabBarController
@@ -83,19 +90,18 @@ class AllTasksViewController: UIViewController, Themeable {
         
     }
     
+    //MARK: - Dark Mode changing
     func applyTheme(_ isDarkModeEnabled: Bool) {
         if isDarkModeEnabled {
             // Apply dark mode appearance
             amallarTableView.backgroundColor = .mainBlack
             self.navigationController?.navigationBar.barTintColor = .mainBlack
             self.amallarTableView.reloadData()
-            // Update other UI elements for dark mode
         } else {
             // Apply light mode appearance
             amallarTableView.backgroundColor = .mainColor
             self.navigationController?.navigationBar.barTintColor = .mainColor
             self.amallarTableView.reloadData()
-            // Update other UI elements for light mode
         }
     }
     

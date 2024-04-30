@@ -31,13 +31,21 @@ class SettingsViewController: UIViewController, Themeable {
         super.viewDidLoad()
         view.backgroundColor = .mainColor
         setupUI()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.barTintColor = UIColor.mainColor
-        navigationItem.searchController = searchController
         updateAppAppearance()
+        configureNavigationBar()
+        
     }
     
-    func setupUI() {
+//    //MARK: -  When mode changed from settings of the simulator
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        super.traitCollectionDidChange(previousTraitCollection)
+//        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+//            updateAppAppearance()
+//        }
+//    }
+    
+    //MARK: - UI setup
+    private func setupUI() {
         view.addSubview(settingsTableView)
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
@@ -52,29 +60,13 @@ class SettingsViewController: UIViewController, Themeable {
         //MARK: - HeaderView for SettingsTableView
         let header = SettingsHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 120))
         settingsTableView.tableHeaderView = header
-//        //MARK: - HeaderView properties
-//        let profileImageView = UIImageView(frame: CGRect(x: 15, y: 20, width: 90, height: 90))
-//        profileImageView.image = UIImage(systemName: "person.circle.fill")
-//        profileImageView.backgroundColor = .mainColor
-//        profileImageView.layer.cornerRadius = 45
-//        profileImageView.contentMode = .scaleAspectFit
-//        profileImageView.tintColor = .mainBlack
-//        header.addSubview(profileImageView)
-//        
-//        let nameLabel = UILabel(frame: CGRect(x: 135, y: 20, width: 200, height: 30))
-//        nameLabel.text = "User Name"
-//        nameLabel.font = .boldSystemFont(ofSize: 25)
-//        nameLabel.textColor = .textColor
-//        nameLabel.backgroundColor = .mainColor
-//        header.addSubview(nameLabel)
-//        
-//        let surnameLabel = UILabel(frame: CGRect(x: 135, y: 60, width: 200, height: 30))
-//        surnameLabel.text = "User Surname"
-//        surnameLabel.font = .boldSystemFont(ofSize: 25)
-//        surnameLabel.textColor = .textColor
-//        surnameLabel.backgroundColor = .mainColor
-//        header.addSubview(surnameLabel)
-//        settingsTableView.tableHeaderView = header
+    }
+    
+    //MARK: - NavigationBar configuration
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.barTintColor = UIColor.mainColor
+        navigationItem.searchController = searchController
     }
     
     
@@ -89,14 +81,16 @@ class SettingsViewController: UIViewController, Themeable {
         settingsTableView.reloadData()
     }
     
-    func updateAppAppearance() {
+    //MARK: - Updating appearance when application mode changed
+    private func updateAppAppearance() {
         
         let isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
         let tabBarVC = tabBarController as? TabBarController
         tabBarVC?.applyDarkMode(isDarkModeEnabled)
-
+        
     }
     
+    //MARK: - Dark Mode changing
     func applyTheme(_ isDarkModeEnabled: Bool) {
         if isDarkModeEnabled {
             // Apply dark mode appearance
@@ -105,7 +99,6 @@ class SettingsViewController: UIViewController, Themeable {
             view.backgroundColor = .mainBlack
             self.navigationController?.navigationBar.barTintColor = .mainBlack
             self.settingsTableView.reloadData()
-//            self.navigationController?.navigationBar.barTintColor = .mainColor
             // Update other UI elements for dark mode
         } else {
             // Apply light mode appearance
@@ -114,7 +107,6 @@ class SettingsViewController: UIViewController, Themeable {
             view.backgroundColor = .mainColor
             self.navigationController?.navigationBar.barTintColor = .mainColor
             self.settingsTableView.reloadData()
-//            self.navigationController?.navigationBar.barTintColor = .black
             // Update other UI elements for light mode
         }
     }
