@@ -8,91 +8,87 @@
 import UIKit
 import SnapKit
 
+@available(iOS 15.0, *)
 class PlanningSunnahViewController: UIViewController {
-
+    
     //MARK: - Properties
-    let sunnahSelectingLabel = Label(text: "Select Sunnah", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 22), numberOfLines: 0)
-    let fromLabel = Label(text: "From", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 18), numberOfLines: 0)
+    private let sunnahSelectingLabel = Label(text: "Select Sunnah", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 22), numberOfLines: 0)
+    private let fromLabel = Label(text: "From", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 18), numberOfLines: 0)
     
-    let toLabel = Label(text: "To", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 18), numberOfLines: 0)
+    private let toLabel = Label(text: "To", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 18), numberOfLines: 0)
     
-    let numberOfDaysLabel = Label(text: "Number of Days", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 18), numberOfLines: 0)
+    private let numberOfDaysLabel = Label(text: "Number of Days", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 18), numberOfLines: 0)
     
-    let notificationLabel = Label(text: "Notification", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 18), numberOfLines: 0)
+    private let notificationLabel = Label(text: "Notification", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 18), numberOfLines: 0)
     
-    let notificationTimeLabel = Label(text: "Notification Time", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 18), numberOfLines: 0)
+    private let notificationTimeLabel = Label(text: "Notification Time", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 18), numberOfLines: 0)
     
     @objc let addPlannerButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setTitle("Add Planner", for: .normal)
         button.setTitleColor(.mainColor, for: .normal)
         button.backgroundColor = .mainBlack
         button.layer.cornerRadius = 15
         button.tintColor = .mainColor
-        button.addTarget(self, action: #selector(getter: addPlannerButton), for: .touchUpInside)
         return button
     }()
     
-    let fromSunnahLabel = Label(text: "From Sunnah Name", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 13), numberOfLines: 2)
+    private let fromSunnahLabel = Label(text: "From Sunnah Name", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 13), numberOfLines: 2)
     
-    let fromSunnahChoosingButton: UIButton = {
-       let button = UIButton()
+    private let fromSunnahChoosingButton: UIButton = {
+        let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
         button.tintColor = .mainColor
         button.backgroundColor = .mainBlack
         button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(fromSunnahButtonTapped), for: .touchUpInside)
         return button
     }()
     
-    let toSunnahLabel = Label(text: "To Sunnah Name", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 13), numberOfLines: 2)
+    private let toSunnahLabel = Label(text: "To Sunnah Name", textColor: .textColor, fontSize: .boldSystemFont(ofSize: 13), numberOfLines: 2)
     
-    let toSunnahChoosingButton: UIButton = {
-       let button = UIButton()
+    private let toSunnahChoosingButton: UIButton = {
+        let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
         button.tintColor = .mainColor
         button.backgroundColor = .mainBlack
         button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(toSunnahButtonTapped), for: .touchUpInside)
         return button
     }()
     
-    let numberOfDaysTextField: UITextField = {
-       let field = UITextField()
+    private let numberOfDaysTextField: UITextField = {
+        let field = UITextField()
         field.tintColor = .textColor
         field.layer.borderWidth = 2
         field.layer.borderColor = UIColor.textColor.cgColor
         return field
     }()
     
-    let switchButton: UISwitch = {
-       let button = UISwitch()
+    private let switchButton: UISwitch = {
+        let button = UISwitch()
         button.onTintColor = .mainBlack
         button.isOn = true
-        button.addTarget(self, action: #selector(switchButtonToggled), for: .valueChanged)
         return button
     }()
     
-    let timeSettingButton: UIButton = {
-       let button = UIButton()
-//        button.setTitle("12:00", for: .normal)
+    private let timeSettingButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Time", for: .normal)
         button.setTitleColor(.textColor, for: .normal)
-        button.addTarget(self, action: #selector(timeSettingButtonTapped), for: .touchUpInside)
         return button
     }()
     
-    let sunnahPickerView: UIPickerView = {
-       let pickerview = UIPickerView()
+    private let sunnahPickerView: UIPickerView = {
+        let pickerview = UIPickerView()
         return pickerview
     }()
     
-    let toSunnahPickerView: UIPickerView = {
-       let pickerview = UIPickerView()
+    private let toSunnahPickerView: UIPickerView = {
+        let pickerview = UIPickerView()
         return pickerview
     }()
     
-    var isOn: Bool = true
-
+    private var isOn: Bool = true
+    
     private var sunnahTypes: [SunnahType] = Information.sunnahs
     private var selectedFromSunnahTypeIndex: Int = 0
     private var selectedToSunnahTypeIndex: Int = 0
@@ -154,6 +150,7 @@ class PlanningSunnahViewController: UIViewController {
         
         //button to choose from which sunnah begin
         view.addSubview(fromSunnahChoosingButton)
+        fromSunnahChoosingButton.addTarget(self, action: #selector(fromSunnahButtonTapped), for: .touchUpInside)
         fromSunnahChoosingButton.snp.makeConstraints { make in
             make.top.equalTo(fromLabel.snp.top)
             make.right.equalTo(view.snp.right).offset(-10)
@@ -175,6 +172,7 @@ class PlanningSunnahViewController: UIViewController {
         
         //button to choose at which sunnah to stop
         view.addSubview(toSunnahChoosingButton)
+        toSunnahChoosingButton.addTarget(self, action: #selector(toSunnahButtonTapped), for: .touchUpInside)
         toSunnahChoosingButton.snp.makeConstraints { make in
             make.top.equalTo(toLabel.snp.top)
             make.right.equalTo(view.snp.right).offset(-10)
@@ -210,6 +208,7 @@ class PlanningSunnahViewController: UIViewController {
         }
         
         view.addSubview(switchButton)
+        switchButton.addTarget(self, action: #selector(switchButtonToggled), for: .valueChanged)
         switchButton.snp.makeConstraints { make in
             make.top.equalTo(notificationLabel.snp.top)
             make.right.equalTo(view.snp.right).offset(-10)
@@ -224,6 +223,7 @@ class PlanningSunnahViewController: UIViewController {
         }
         
         view.addSubview(timeSettingButton)
+        timeSettingButton.addTarget(self, action: #selector(timeSettingButtonTapped), for: .touchUpInside)
         timeSettingButton.snp.makeConstraints { make in
             make.top.equalTo(notificationTimeLabel.snp.top)
             make.right.equalTo(view.snp.right).offset(-10)
@@ -232,6 +232,7 @@ class PlanningSunnahViewController: UIViewController {
         }
         
         view.addSubview(addPlannerButton)
+        addPlannerButton.addTarget(self, action: #selector(getter: addPlannerButton), for: .touchUpInside)
         addPlannerButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(notificationTimeLabel.snp.bottom).offset(20)
@@ -258,7 +259,7 @@ class PlanningSunnahViewController: UIViewController {
         
     }
     
-    func savingToUserDefaults() {
+    private func savingToUserDefaults() {
         
         if let numberOfDays = UserDefaults.standard.value(forKey: "numberOfDays") as? Int {
             numberOfDaysTextField.text = "\(numberOfDays)"
@@ -273,12 +274,29 @@ class PlanningSunnahViewController: UIViewController {
             selectedToSunnahTypeIndex = selectedToIndex
             toSunnahLabel.text = sunnahTypes[selectedToIndex].typeName
         }
+        
+        if let savedTime = UserDefaults.standard.string(forKey: "notificationTime") {
+            self.timeSettingButton.setTitle(savedTime, for: .normal)
+        }
     }
     
-    
     func scheduleLocalNotification() {
+        // Get the current date
+        let currentDate = Date()
+        
+        // Create a date component for the next day
+        var dateComponents = Calendar.current.dateComponents([.day, .month, .year], from: currentDate)
+        dateComponents.day! += 1
+        
+        // Create a date from the next day's components
+        guard let nextDate = Calendar.current.date(from: dateComponents) else {
+            print("Error creating next date")
+            return
+        }
+        
+        // Create notification content
         let content = UNMutableNotificationContent()
-        content.title = "Reminder"
+        content.title = "Sunnah Reminder"
         content.sound = .default
         
         // Get selected sunnahs
@@ -287,93 +305,76 @@ class PlanningSunnahViewController: UIViewController {
         // Create notification trigger for daily notifications
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: true) // 86400 seconds = 1 day
         
-        // Loop through each selected sunnah and schedule a separate notification for each
-        for sunnah in selectedSunnahs {
+        // Iterate over each selected sunnah
+        for (index, sunnah) in selectedSunnahs.enumerated() {
             // Customize the notification content
             content.body = sunnah.name // Change the content body to the sunnah name or any other desired content
             
-            // Create a unique identifier for each notification
-            let identifier = UUID().uuidString
+            // Calculate the fire date for the current sunnah
+            let fireDate = nextDate.addingTimeInterval(TimeInterval(index * 86400)) // Add 1 day for each sunnah
             
             // Create notification request
-            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            let request = UNNotificationRequest(identifier: "SunnahReminder-\(index)", content: content, trigger: UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.hour, .minute], from: fireDate), repeats: false))
             
             // Schedule the notification
             UNUserNotificationCenter.current().add(request) { error in
                 if let error = error {
                     print("Error scheduling notification: \(error)")
                 } else {
-                    print("Notification scheduled successfully")
+                    print("Notification scheduled successfully for \(fireDate)")
                 }
             }
         }
     }
-
-
+    
+    
     
     @objc func timeSettingButtonTapped() {
         let timePicker = UIDatePicker()
         timePicker.datePickerMode = .time
         
-        // Create alert controller
-        let alertController = UIAlertController(title: "Select Notification Time", message: nil, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "", message: nil, preferredStyle: .actionSheet)
         
-        // Add time picker to alert controller
         alertController.view.addSubview(timePicker)
         
-        // Create done action
         let doneAction = UIAlertAction(title: "Done", style: .default) { _ in
             let selectedTime = timePicker.date
             let components = Calendar.current.dateComponents([.hour, .minute], from: selectedTime)
             
-            // Set the title of timeSettingButton to the selected time
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm"
             let selectedTimeString = formatter.string(from: selectedTime)
             self.timeSettingButton.setTitle(selectedTimeString, for: .normal)
             
-            // Schedule notifications for the selected time
+            UserDefaults.standard.set(selectedTimeString, forKey: "notificationTime")
             self.scheduleNotifications(at: components)
         }
         
-        // Create cancel action
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        // Add actions to alert controller
         alertController.addAction(doneAction)
         alertController.addAction(cancelAction)
         
-        // Present the alert controller
         present(alertController, animated: true, completion: nil)
     }
-
-
-    func scheduleNotifications(at time: DateComponents) {
-        // Create notification content
+    
+    private func scheduleNotifications(at components: DateComponents) {
+        cancelExistingNotifications()
+        
         let content = UNMutableNotificationContent()
-        content.title = "Reminder"
+        content.title = "Sunnah Reminder"
         content.sound = .default
         
-        // Get selected sunnahs
-        let selectedSunnahs = sunnahTypes[selectedFromSunnahTypeIndex...selectedToSunnahTypeIndex]
+        let selectedSunnahs = sunnahTypes[selectedFromSunnahTypeIndex].sunnahs[selectedFromSunnahTypeIndex...selectedToSunnahTypeIndex]
         
-        // Iterate over each SunnahType
-        for sunnahType in selectedSunnahs {
-            // Iterate over each Sunnah in the SunnahType
-            for sunnah in sunnahType.sunnahs {
-                content.body += "\(sunnah.name)\n"
-            }
-        }
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         
-        // Create notification trigger
-        let trigger = UNCalendarNotificationTrigger(dateMatching: time, repeats: true)
-        
-        // Create notification request
-        for (index, _) in selectedSunnahs.enumerated() {
-            let identifier = "SunnahReminder-\(index)"
+        for (index, sunnah) in selectedSunnahs.enumerated() {
+            content.body = sunnah.name
+            
+            let identifier = "Sunnah Reminde- \(index)"
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
             
-            // Schedule the notification
             UNUserNotificationCenter.current().add(request) { error in
                 if let error = error {
                     print("Error scheduling notification: \(error)")
@@ -383,26 +384,23 @@ class PlanningSunnahViewController: UIViewController {
             }
         }
     }
-
-
+    
+    private func cancelExistingNotifications() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
+    
     @objc func switchButtonToggled() {
-        if switchButton.isOn {
-            // Resume notifications
-            UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
-                let identifiers = requests.map { $0.identifier }
-                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
-                self.scheduleLocalNotification()
-            }
-        } else {
-            // Stop notifications
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        }
+        
     }
     
     @objc func addPlannerButtonTapped() {
-        scheduleLocalNotification()
-        dismiss(animated: true)
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: Date())
+        
+        scheduleNotifications(at: dateComponents)
+        
+        self.dismiss(animated: true)
     }
+    
     
     @objc func doneButtonTapped() {
         // Dismiss the keyboard
@@ -426,21 +424,23 @@ class PlanningSunnahViewController: UIViewController {
         sunnahPickerView.isHidden = true
         isOn.toggle()
     }
-
+    
 }
 
+@available(iOS 15.0, *)
 extension PlanningSunnahViewController: UITextFieldDelegate {
-
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
+        
         let allowedCharacters = CharacterSet.decimalDigits
         
-
+        
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
     }
 }
 
+@available(iOS 15.0, *)
 extension PlanningSunnahViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
