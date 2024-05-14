@@ -14,6 +14,7 @@ class SettingsViewController: UIViewController, Themeable {
     let settingsTableView: UITableView = {
         let tableview = UITableView()
         tableview.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
+        tableview.register(PlanningSunnahTableViewCell.self, forCellReuseIdentifier: PlanningSunnahTableViewCell.identifier)
         return tableview
     }()
     
@@ -35,14 +36,6 @@ class SettingsViewController: UIViewController, Themeable {
         configureNavigationBar()
         
     }
-    
-//    //MARK: -  When mode changed from settings of the simulator
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        super.traitCollectionDidChange(previousTraitCollection)
-//        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-//            updateAppAppearance()
-//        }
-//    }
     
     //MARK: - UI setup
     private func setupUI() {
@@ -119,6 +112,15 @@ class SettingsViewController: UIViewController, Themeable {
         }
     }
     
+    @objc func showPlanningView() {
+        let planningVC = PlanningSunnahViewController()
+        if let sheet = planningVC.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+        }
+        present(planningVC, animated: true)
+        print("tapped")
+    }
+    
 }
 
 @available(iOS 15.0, *)
@@ -130,18 +132,28 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as! SettingsTableViewCell
-        cell.backgroundColor = .mainColor
-        cell.selectionStyle = .none
-        cell.switchButton.isOn = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
-        cell.switchButton.addTarget(self, action: #selector(darkModeSwitchChanged), for: .valueChanged)
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as! SettingsTableViewCell
+            cell.backgroundColor = .mainColor
+            cell.selectionStyle = .none
+            cell.switchButton.isOn = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
+            cell.switchButton.addTarget(self, action: #selector(darkModeSwitchChanged), for: .valueChanged)
+            
+            cell.applyTheme(UserDefaults.standard.bool(forKey: "isDarkModeEnabled"))
+            return cell
+        } else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: PlanningSunnahTableViewCell.identifier, for: indexPath) as! PlanningSunnahTableViewCell
+            cell.selectionStyle = .none
+            cell.backgroundColor = .mainColor
+            cell.planningButton.addTarget(self, action: #selector(showPlanningView), for: .touchUpInside)
+            return cell
+        }
         
-        cell.applyTheme(UserDefaults.standard.bool(forKey: "isDarkModeEnabled"))
-        return cell
+        return UITableViewCell()
     }
     
 }

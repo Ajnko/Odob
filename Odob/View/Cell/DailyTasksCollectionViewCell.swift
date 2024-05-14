@@ -13,10 +13,11 @@ class DailyTasksCollectionViewCell: UICollectionViewCell, Themeable {
     //MARK: - Properties
     static let identifier = "DailyTasksCollectionViewCell"
     
-    let sunnahNameLabel: UILabel = {
+    let sunnahLabel: UILabel = {
        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 18)
+        label.font = .boldSystemFont(ofSize: 15)
         label.textColor = .textColor
+        label.numberOfLines = 2
         return label
     }()
     
@@ -38,33 +39,34 @@ class DailyTasksCollectionViewCell: UICollectionViewCell, Themeable {
     }
     
     func setupUI() {
-        self.addSubview(sunnahNameLabel)
-        sunnahNameLabel.snp.makeConstraints { make in
+        self.addSubview(sunnahLabel)
+        sunnahLabel.snp.makeConstraints { make in
             make.top.equalTo(self.snp.top).offset(15)
             make.left.equalTo(self.snp.left).offset(10)
+            make.width.equalTo(self.snp.width).multipliedBy(1)
         }
         
         self.addSubview(sunnahDefinitionLabel)
         sunnahDefinitionLabel.snp.makeConstraints { make in
-            make.top.equalTo(sunnahNameLabel.snp.bottom).offset(5)
+            make.top.equalTo(sunnahLabel.snp.bottom).offset(5)
             make.left.equalTo(self.snp.left).offset(10)
             make.width.equalTo(self.snp.width).multipliedBy(0.8)
         }
     }
     
     func configureView(with sunnah: Sunnah) {
-        sunnahNameLabel.text = sunnah.name
+        sunnahLabel.text = sunnah.name
         sunnahDefinitionLabel.text = sunnah.definition
     }
     
     func applyTheme(_ isDarkModeEnabled: Bool) {
         if isDarkModeEnabled {
             self.backgroundColor = .mainBlack
-            sunnahNameLabel.textColor = .mainColor
+            sunnahLabel.textColor = .mainColor
             sunnahDefinitionLabel.textColor = .mainColor
         } else {
             self.backgroundColor = .mainColor
-            sunnahNameLabel.textColor = .textColor
+            sunnahLabel.textColor = .textColor
             sunnahDefinitionLabel.textColor = .textColor
         }
     }
