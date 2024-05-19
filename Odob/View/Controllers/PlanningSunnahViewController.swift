@@ -358,28 +358,50 @@ class PlanningSunnahViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    private func scheduleNotifications(at components: DateComponents) {
-        cancelExistingNotifications()
+    //MARK: - new func testing
+    func scheduleNotifications(at time: DateComponents) {
+
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
+
         let content = UNMutableNotificationContent()
-        content.title = "Sunnah Reminder"
+        content.title = "Reminder"
         content.sound = .default
         
-        let selectedSunnahs = sunnahTypes[selectedFromSunnahTypeIndex].sunnahs[selectedFromSunnahTypeIndex...selectedToSunnahTypeIndex]
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-        
-        for (index, sunnah) in selectedSunnahs.enumerated() {
-            content.body = sunnah.name
+
+        let selectedSunnahs = sunnahTypes[selectedFromSunnahTypeIndex...selectedToSunnahTypeIndex]
+
+
+        let sunnahNames = selectedSunnahs.flatMap { $0.sunnahs }
+
+
+        for (index, sunnahName) in sunnahNames.enumerated() {
+            let nextTriggerDate = Calendar.current.date(byAdding: .day, value: index, to: Date())!
+            let nextTriggerComponents = Calendar.current.dateComponents([.year, .month, .day], from: nextTriggerDate)
             
-            let identifier = "Sunnah Reminde- \(index)"
+            var triggerComponents = DateComponents()
+            triggerComponents.year = nextTriggerComponents.year
+            triggerComponents.month = nextTriggerComponents.month
+            triggerComponents.day = nextTriggerComponents.day
+            triggerComponents.hour = time.hour
+            triggerComponents.minute = time.minute
+
+
+            content.body = sunnahName.name
+
+
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComponents, repeats: false)
+
+
+            let identifier = "SunnahReminder-\(index)"
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-            
+
+
             UNUserNotificationCenter.current().add(request) { error in
                 if let error = error {
                     print("Error scheduling notification: \(error)")
                 } else {
-                    print("Notification scheduled successfully")
+                    print("Notification scheduled successfully for \(sunnahName)")
                 }
             }
         }
@@ -393,12 +415,22 @@ class PlanningSunnahViewController: UIViewController {
         
     }
     
+    //new func testing
     @objc func addPlannerButtonTapped() {
-        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: Date())
-        
+
+        let notificationHour = UserDefaults.standard.integer(forKey: "notificationHour")
+        let notificationMinute = UserDefaults.standard.integer(forKey: "notificationMinute")
+
+
+        var dateComponents = DateComponents()
+        dateComponents.hour = notificationHour
+        dateComponents.minute = notificationMinute
+
+
         scheduleNotifications(at: dateComponents)
-        
-        self.dismiss(animated: true)
+
+
+        dismiss(animated: true, completion: nil)
     }
     
     
